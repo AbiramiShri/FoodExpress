@@ -1,17 +1,30 @@
-# FoodExpress
+# Food Delivery Application
 
-**⚙️ Detailed Functionality**
-Users have to authenticate themselves by Email
-User can add carts items to cart
-Users can update quantity delete the item
-User can check the summry of ordre like items price ,delivery price and total
-User can select COD or online payment for order
-After Placing order user will redirect to ordere details page and recives an email of order
-User can view there old orders and profile
-User can add, edit or delete address while checkout
+<div align="center">
+  <img width="200px" src="https://cdn-icons-png.flaticon.com/512/4039/4039232.png"/>
+</div>
+<br>
 
-**
-🚀 Tech and Tools Used**
-React.JS ,Redux ,NodeJS ,ExpressJs,MongoDB
-VS code,Heruko
-React Icons,REST APIS ,JWT ,GoogleAPIs,Yup
+<ul><li> Food Delivery Web Application made using MERN stack (UNDER DEVLOPEMENT)</li>
+<li> The application leverages modern React and NodeJS features such as Modules, Skeletons, React Portals, and Redux Thunk</li>
+<li>Follows the MVC architecture and implements microservices on the server side</li>
+</ul>
+
+## ⚙️ Detailed Functionality
+
+<ul>
+<li>User authentication via email</li>
+<li>Adding items to the cart</li>
+<li>Updating and deleting items from the cart</li>
+<li>Viewing a summary of the order, including item prices, delivery charges, and the total amount</li>
+<li>Choosing between Cash on Delivery (COD) or online payment Stripe/Paypal(Future Development)</li>
+<li>After placing an order, users are redirected to the order details page and receive an email confirmation</li>
+<li>Accessing a history of past orders and managing user profiles</li>
+<li>Adding, editing, or deleting addresses during the checkout process</li>
+
+## 🚀 Tech and Tools Used
+<ul>
+<li>
+<li>React.JS, Redux, NodeJS, ExpressJs, MongoDB</li>
+<li>Visual Studio Code</li>
+<li>React Icons, REST APIs, JWT, Google APIs, Yup</li>

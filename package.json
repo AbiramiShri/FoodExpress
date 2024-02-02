@@ -1,0 +1,12 @@
+{
+  "name": "foodexpress",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <img width=\"200px\" src=\"https://cdn-icons-png.flaticon.com/512/4039/4039232.png\"/> </div> <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
