@@ -1,7 +1,7 @@
-# Food Delivery Application
+## Food Delivery Application
 
 <div align="center">
-  <img width="200px" src="https://cdn-icons-png.flaticon.com/512/4039/4039232.png"/>
+  <img width="200px" src="../frontend/src/logo.jpeg"/>
 </div>
 <br>
 
@@ -24,7 +24,8 @@
 
 ## 🚀 Tech and Tools Used
 <ul>
-<li>
+
 <li>React.JS, Redux, NodeJS, ExpressJs, MongoDB</li>
 <li>Visual Studio Code</li>
 <li>React Icons, REST APIs, JWT, Google APIs, Yup</li>
+</ul>
