@@ -43,3 +43,145 @@ nav a.nav-link:hover::before {
 .navbar-toggler {
   background: white;
 }
+
+
+.carousel .slide .legend {
+  transition: all .5s ease-in-out;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  background: #00000070;
+  color: #fff;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .35s ease-in-out;
+}
+
+.carousel .slide .legend p a,
+.banner p a {
+  border: 2px solid #fff;
+  color: #fff;
+  background: rgba(5, 6, 1, .51);
+  padding: 10px 23px;
+  cursor: pointer;
+  outline: 0;
+  text-align: center;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.banner {
+  width: 100%;
+  background: #fa5543e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.banner p {
+  color: #fff;
+  font-weight: 600;
+}
+
+.banner h2 {
+  color: #202936;
+
+}
+
+.banner p span {
+  color: #202936;
+  font-weight: 800;
+}
+
+.banner .img img {
+  height: 220px;
+  width: 230px;
+}
+
+.banner .text {
+  margin-left: 4rem;
+}
+
+main .info {
+  background-image: url("../images/onlypizza_parallex42_black.jpeg");
+}
+
+.info-odd-bg {
+  background: #fff;
+  color: #202936;
+  padding: 30px;
+
+}
+
+.info-even-bg {
+  background: #202936;
+  color: #fff;
+  padding: 30px;
+
+}
+
+
+.category-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.category-area .category {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.category-area .category .cat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  width: 90px;
+  border-radius: 10px;
+  background-color: #F85546;
+  margin: 2rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: #fff;
+
+}
+
+.category-area .category .cat-icon.active,
+.category-area .category .cat-icon:hover {
+  background: #202936;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-area .category .cat-icon .img {
+  padding: 10px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0px;
+}
+
+.category-area .category .cat-icon img {
+  width: 30px;
+  height: 30px;
+}
