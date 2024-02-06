@@ -1,0 +1,45 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+header,
+footer {
+  background: #202936;
+  color: white;
+}
+
+/* Add these styles to your existing CSS */
+nav a.nav-link {
+  color: white;
+  position: relative;
+  /* Set position to relative to make the ::before pseudo-element relative to this */
+}
+
+nav a.nav-link:hover {
+  color: #F85546;
+}
+
+nav a.nav-link::before {
+  content: "";
+  height: 2px;
+  border-radius: 0;
+  background-color: #F85546;
+  position: absolute;
+  bottom: 0;
+  /* Position the underline at the bottom of the link */
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  /* Initial transform to hide the underline */
+  transform-origin: left center;
+  transition: transform 0.5s ease;
+}
+
+nav a.nav-link:hover::before {
+  transform: scaleX(1);
+  /* Scale the underline to show it on hover */
+}
+
+.navbar-toggler {
+  background: white;
+}
