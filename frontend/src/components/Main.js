@@ -25,7 +25,7 @@ const Main = () => {
               A big delight in every bite.
             </h3>
             <p>
-              <a href="#">Order Online</a>
+              <a href="/Menu">Order Online</a>
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Main = () => {
           <div className="legend">
             <h3 className="mb-3 text-uppercase"> Order online quickly</h3>
             <p>
-              <a href="#">Order Online</a>
+              <a href="/Menu">Order Online</a>
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Main = () => {
           <div className="legend">
             <h3 className="mb-3 text-uppercase">Enjoy the food</h3>
             <p>
-              <a href="#">Order Online</a>
+              <a href="/Menu">Order Online</a>
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ const Main = () => {
               Get Free delivery on <span>$50</span> and above
             </p>
             <p>
-              <a href="#">Order Online</a>
+              <a href="/Menu">Order Online</a>
             </p>
           </div>
         </div>

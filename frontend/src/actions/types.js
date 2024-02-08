@@ -1,0 +1,14 @@
+export const ERROR = 'FETCH_ERROR';
+export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
+export const SIGNIN = 'SIGNIN';
+export const SIGNUP_REQUEST = 'SIGNIN_REQUEST';
+export const SIGNUP = 'SIGNUP';
+export const LOGOUT = 'LOGOUT';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+
+export const AUTH_ERROR = 'AUTH_ERROR';
+
+export const UPDATE_PROFILE_REQ = 'UPDATE_PROFILE_REQ';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const UPDATE_PROFILE_ERROR = 'UPDATE_PROFILE_ERROR';

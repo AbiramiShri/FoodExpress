@@ -15,11 +15,16 @@ nav a.nav-link {
   /* Set position to relative to make the ::before pseudo-element relative to this */
 }
 
-nav a.nav-link:hover {
+nav a.nav-link:hover,
+nav a.nav-link:focus,
+.dropdown button.btn:hover,
+.dropdown button.btn:focus {
   color: #F85546;
+  background: none;
 }
 
-nav a.nav-link::before {
+nav a.nav-link::before,
+.dropdown button.btn::before {
   content: "";
   height: 2px;
   border-radius: 0;
@@ -44,6 +49,18 @@ nav a.nav-link:hover::before {
   background: white;
 }
 
+.dropdown button.btn {
+  background: none;
+  border: none;
+}
+
+.dropdown-menu.show {
+  min-width: 100%;
+}
+
+.dropdown-menu.show a:hover {
+  color: #F85546;
+}
 
 .carousel .slide .legend {
   transition: all .5s ease-in-out;
@@ -184,4 +201,194 @@ main .info {
 .category-area .category .cat-icon img {
   width: 30px;
   height: 30px;
+}
+
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.auth .logo {
+  position: relative;
+  top: -4rem;
+}
+
+.auth .logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.form {
+  width: 360px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 8%);
+}
+
+.form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form input,
+form select {
+  border: none;
+  outline: none;
+  padding: 12px 10px;
+  background: rgb(241, 241, 241);
+  width: 100%;
+  border-radius: 3px;
+  margin: 10px 0;
+  color: #484848;
+}
+
+form .text {
+  width: 100%;
+  text-align: end;
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+form .text a {
+  color: #F85546
+}
+
+form button {
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #202936;
+  color: #fff;
+  border: none;
+  padding: 5px;
+}
+
+.forget {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forget a {
+  color: #F85546;
+}
+
+.err {
+  color: #F85546;
+  width: 100%;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: rgba(243, 79, 79, 0.295);
+  text-align: start;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+input:focus {
+  border-bottom-color: #202936;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.input-group input::placeholder {
+  opacity: 0;
+
+}
+
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+  top: 10px;
+  font-size: 14px;
+  color: #202936
+}
+
+
+.profile-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  background: #202936;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.profile-photo h1 {
+  color: #fff;
+  font-size: 4rem;
+}
+
+.profile-detail {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.profile-detail .profile-input {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.profile-detail .profile-input input {
+  width: 100%;
+}
+
+.profile-detail button {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+@media (max-width: 992px) {
+  .dropdown-menu.show {
+    background: none;
+    border: none;
+  }
+
+  .dropdown-menu.show a {
+    color: #fff;
+  }
 }
