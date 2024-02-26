@@ -17,6 +17,7 @@ const Signup = () => {
   const userInfo = user?.user;
   const redirect = location.search ? `/${location.search.split('=')[1]}` : '/';
 
+  // Yup schema for form validation
   let schema = yup.object().shape({
     name: yup.string().required('Please Enter your Name'),
     email: yup.string().required('Please Enter your Email').email(),
@@ -43,12 +44,14 @@ const Signup = () => {
     resolver: yupResolver(schema),
   });
 
+  // Function to handle form submission
   const submitHandler = (data) => {
     dispatch(signupUser(data.name, data.email, data.password));
     setLoading(true);
   };
 
   useEffect(() => {
+    // Redirect if user info is available
     if (userInfo) {
       navigate(redirect);
     }
@@ -60,8 +63,11 @@ const Signup = () => {
         <div className="logo">
           <img src={Logo} alt="" />
         </div>
+        {/* Display error message if any */}
         {user?.error && <div className="err">{user?.error}</div>}
+        {/* Sign-up form */}
         <form onSubmit={handleSubmit(submitHandler)}>
+          {/* Name input */}
           <div className="input-group">
             <input
               type="text"
@@ -71,9 +77,11 @@ const Signup = () => {
             />
             <label>Name</label>
           </div>
+          {/* Display name validation error message if any */}
           {errors?.name?.message && (
             <p className="err">{errors?.name?.message}</p>
           )}
+          {/* Email input */}
           <div className="input-group">
             <input
               type="email"
@@ -83,9 +91,11 @@ const Signup = () => {
             />
             <label>Email</label>
           </div>
+          {/* Display email validation error message if any */}
           {errors?.email?.message && (
             <p className="err">{errors?.email?.message}</p>
           )}
+          {/* Password input */}
           <div className="input-group">
             <input
               type="password"
@@ -96,14 +106,17 @@ const Signup = () => {
             />
             <label>Password</label>
           </div>
+          {/* Display password validation error message if any */}
           {errors?.password?.message && (
             <p className="err">{errors?.password?.message}</p>
           )}
-
+          {/* Submit button */}
           <button type="submit">
+            {/* Render spinner if loading, else render 'Register' */}
             {user?.loading ? <Spinner /> : 'Register'}
           </button>
         </form>
+        {/* Link to sign-in */}
         <div className="forget">
           <p className="mb-0">Already a user?</p>{' '}
           <Link className="text-uppercase" to="/signin">

@@ -7,6 +7,7 @@ import {updateprofile} from '../actions/auth';
 import {Link} from 'react-router-dom';
 import Spinner from '../components/Spinner'; // Import the Spinner component
 
+// Profile component
 const Profile = () => {
   const user = useSelector((state) => state.user?.user);
   const [showBtn, setShowBtn] = useState(false);
@@ -27,6 +28,7 @@ const Profile = () => {
     resolver: yupResolver(schema),
   });
 
+  // Function to handle form submission
   const onSubmit = async (data) => {
     setSubmitting(true); // Start form submission
     await dispatch(updateprofile(data)); // Dispatch updateprofile action
@@ -38,13 +40,17 @@ const Profile = () => {
     <>
       <div className="mainarea all-oredrs">
         <div className="profile-section">
+          {/* If user is logged in */}
           {user ? (
             <>
+              {/* Display user profile details */}
               <div className="profile-photo">
                 <h1>{user?.name?.charAt(0)}</h1>
               </div>
               <div className="profile-detail ">
+                {/* Profile update form */}
                 <form onSubmit={handleSubmit(onSubmit)}>
+                  {/* Full Name input */}
                   <div className="profile-input input-group">
                     <input
                       type="text"
@@ -54,20 +60,23 @@ const Profile = () => {
                       onChange={() => setShowBtn(true)}
                     />
                     <label htmlFor="name">Full Name</label>
+                    {/* Display validation error message if any */}
                     {errors.name && (
                       <span className="error">{errors.name.message}</span>
                     )}
                   </div>
+                  {/* Email input */}
                   <div className="profile-input input-group">
                     <input
                       type="text"
                       id="email"
                       placeholder="Email"
                       readOnly
-                      value={user?.eamil}
+                      value={user?.email}
                     />
                     <label htmlFor="email">Email</label>
                   </div>
+                  {/* Mobile No. input */}
                   <div className="profile-input input-group">
                     <input
                       type="number"
@@ -79,6 +88,7 @@ const Profile = () => {
                       onChange={() => setShowBtn(true)}
                     />
                     <label htmlFor="mob">Mobile No.</label>
+                    {/* Display validation error message if any */}
                     {errors.mobNo && (
                       <span className="error">{errors.mobNo.message}</span>
                     )}
@@ -94,6 +104,7 @@ const Profile = () => {
               </div>
             </>
           ) : (
+            // If user is not logged in, display login prompt
             <div>
               <h1>
                 You are not Logged In!, Please <Link to="/signin">Login</Link>

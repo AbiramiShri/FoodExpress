@@ -4,10 +4,13 @@ import Logo from '../assets/images/logo.jpeg';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/auth';
 
+// Header component
 const Header = ({show}) => {
+  // Retrieve user data from Redux store
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
+  // Function to get initials from user name
   const getInitials = (name) => {
     return name
       .toUpperCase()
@@ -16,67 +19,76 @@ const Header = ({show}) => {
       .join('');
   };
 
+  // State for dropdown visibility
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // Function to toggle dropdown visibility
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
 
+  // Function to handle sign out
   const handleSignOut = () => {
     dispatch(logout());
   };
+
   return (
     <header>
+      {/* Bootstrap Navbar */}
       <Navbar expand="lg">
         <Container>
           <Navbar.Brand href="/" className="col-3 col-md-6">
+            {/* Logo */}
             <img
               src={Logo}
               alt="Logo"
               className="img-fluid col-12 col-md-4 col-lg-2"
-            />{' '}
+            />
           </Navbar.Brand>
+          {/* Navbar toggle button */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* Navbar collapse content */}
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="justify-content-end">
             <Nav className="mr-auto">
+              {/* Menu link */}
               <Nav.Link
                 href="Menu"
                 className="me-3 text-end  text-uppercase text-lg-center">
                 Menu
               </Nav.Link>
+              {/* Contact link */}
               <Nav.Link
                 href="Contact"
                 className="me-3  text-uppercase text-end text-lg-center">
                 Contact
               </Nav.Link>
               <div>
-                {/* If user is logged in, show user initials */}
+                {/* If user is not logged in, show login link */}
                 {!user?.user && (
-                  // If user is not logged in, show login button
                   <Nav.Link
                     className="me-3  text-uppercase text-end text-lg-center"
                     href="signin">
                     Login
                   </Nav.Link>
                 )}
-
                 {/* Dropdown menu */}
                 <Dropdown className="text-end">
-                  {/* If user is logged in, show dropdown menu */}
+                  {/* If user is logged in, show user initials */}
                   {user?.user && (
                     <Dropdown.Toggle className="btn" id="dropdown-basic">
                       {getInitials(user.user.name)}
                     </Dropdown.Toggle>
                   )}
-
-                  {/* If user is logged in, show dropdown options */}
+                  {/* Dropdown items */}
                   {user?.user && (
                     <Dropdown.Menu>
+                      {/* Profile link */}
                       <Dropdown.Item className="text-end" href="/profile">
                         Profile
                       </Dropdown.Item>
+                      {/* Logout option */}
                       <Dropdown.Item
                         className="text-end"
                         onClick={handleSignOut}>

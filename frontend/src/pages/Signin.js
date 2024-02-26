@@ -17,6 +17,7 @@ const Signin = () => {
   const userInfo = user?.user;
   const redirect = location.search ? `/${location.search.split('=')[1]}` : '/';
 
+  // Yup schema for form validation
   let schema = yup.object().shape({
     email: yup.string().required('Please Enter your Email').email(),
     password: yup
@@ -42,12 +43,14 @@ const Signin = () => {
     resolver: yupResolver(schema),
   });
 
+  // Function to handle form submission
   const submitHandler = (data) => {
     dispatch(signinUser(data.email, data.password));
     setLoading(true);
   };
 
   useEffect(() => {
+    // Redirect if user info is available
     if (userInfo) {
       navigate(redirect);
     }
@@ -59,8 +62,11 @@ const Signin = () => {
         <div className="logo">
           <img src={Logo} alt="Logo" />
         </div>
+        {/* Display error message if any */}
         {user?.error && <div className="err">{user?.error}</div>}
+        {/* Sign-in form */}
         <form onSubmit={handleSubmit(submitHandler)}>
+          {/* Email input */}
           <div className="input-group">
             <input
               type="email"
@@ -70,9 +76,11 @@ const Signin = () => {
             />
             <label>Email</label>
           </div>
+          {/* Display email validation error message if any */}
           {errors?.email?.message && (
             <p className="err">{errors?.email?.message}</p>
           )}
+          {/* Password input */}
           <div className="input-group">
             <input
               type="password"
@@ -83,18 +91,17 @@ const Signin = () => {
             />
             <label>Password</label>
           </div>
+          {/* Display password validation error message if any */}
           {errors?.password?.message && (
             <p className="err">{errors?.password?.message}</p>
           )}
-          {/* <div className="text">
-            <Link to="/updatepassword">
-              <p>Forget Password?</p>
-            </Link>
-          </div> */}
+          {/* Submit button */}
           <button className="text-uppercase" type="submit">
+            {/* Render spinner if loading, else render 'Login' */}
             {user?.loading ? <Spinner /> : 'Login'}
           </button>
         </form>
+        {/* Link to registration */}
         <div className="forget">
           <p className="mb-0">New user?</p> <Link to="/signup">Register</Link>
         </div>
