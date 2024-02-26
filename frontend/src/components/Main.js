@@ -14,6 +14,8 @@ import popcorn from '../assets/images/popcorn.png';
 import sandwich from '../assets/images/sandwich.png';
 import smoothie from '../assets/images/smoothie.png';
 
+// Main Component
+
 const Main = () => {
   return (
     <>

@@ -1,16 +1,21 @@
+/* Global Styles */
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* Set font family for the body */
 }
 
 header,
 footer {
   background: #202936;
+  /* Set background color for header and footer */
   color: white;
+  /* Set text color for header and footer */
 }
 
-/* Add these styles to your existing CSS */
+/* Navigation Styles */
 nav a.nav-link {
   color: white;
+  /* Set default color for navigation links */
   position: relative;
   /* Set position to relative to make the ::before pseudo-element relative to this */
 }
@@ -20,24 +25,35 @@ nav a.nav-link:focus,
 .dropdown button.btn:hover,
 .dropdown button.btn:focus {
   color: #F85546;
+  /* Change color on hover/focus for navigation links and buttons */
   background: none;
+  /* Remove background on hover/focus for navigation links and buttons */
 }
 
 nav a.nav-link::before,
 .dropdown button.btn::before {
   content: "";
+  /* Add pseudo-element */
   height: 2px;
+  /* Set height for underline */
   border-radius: 0;
+  /* Set border radius for underline */
   background-color: #F85546;
+  /* Set color for underline */
   position: absolute;
+  /* Set position to absolute */
   bottom: 0;
   /* Position the underline at the bottom of the link */
   left: 0;
+  /* Set left position */
   right: 0;
+  /* Set right position */
   transform: scaleX(0);
   /* Initial transform to hide the underline */
   transform-origin: left center;
+  /* Set transform origin */
   transition: transform 0.5s ease;
+  /* Add transition effect */
 }
 
 nav a.nav-link:hover::before {
@@ -45,350 +61,534 @@ nav a.nav-link:hover::before {
   /* Scale the underline to show it on hover */
 }
 
+/* Other Styles... */
+
 .navbar-toggler {
   background: white;
+  /* Set background color for navbar toggler */
 }
 
 .dropdown button.btn {
   background: none;
+  /* Remove background for dropdown button */
   border: none;
+  /* Remove border for dropdown button */
 }
 
 .dropdown-menu.show {
   min-width: 100%;
+  /* Set minimum width for dropdown menu */
 }
 
 .dropdown-menu.show a:hover {
   color: #F85546;
+  /* Change color on hover for dropdown menu links */
 }
 
 .carousel .slide .legend {
   transition: all .5s ease-in-out;
+  /* Add transition effect for carousel legend */
   position: absolute;
+  /* Set position to absolute */
   bottom: 40px;
+  /* Set bottom position for carousel legend */
   left: 0;
+  /* Set left position for carousel legend */
   margin-left: 0;
+  /* Set margin left for carousel legend */
   width: 100%;
+  /* Set width for carousel legend */
   background: #00000070;
+  /* Set background color for carousel legend */
   color: #fff;
+  /* Set text color for carousel legend */
   padding: 10px;
+  /* Set padding for carousel legend */
   font-size: 12px;
+  /* Set font size for carousel legend */
   text-align: center;
+  /* Set text alignment for carousel legend */
   opacity: 1;
+  /* Set opacity for carousel legend */
   transition: opacity .35s ease-in-out;
+  /* Add transition effect for opacity */
 }
 
 .carousel .slide .legend p a,
 .banner p a {
   border: 2px solid #fff;
+  /* Set border for links */
   color: #fff;
+  /* Set text color for links */
   background: rgba(5, 6, 1, .51);
+  /* Set background color for links */
   padding: 10px 23px;
+  /* Set padding for links */
   cursor: pointer;
+  /* Set cursor type for links */
   outline: 0;
+  /* Remove outline for links */
   text-align: center;
+  /* Set text alignment for links */
   -webkit-border-radius: 0;
+  /* Set border radius for links */
   -moz-border-radius: 0;
+  /* Set border radius for links */
   border-radius: 0;
+  /* Set border radius for links */
   text-transform: uppercase;
+  /* Set text transformation for links */
   font-weight: 700;
+  /* Set font weight for links */
 }
 
 .banner {
   width: 100%;
+  /* Set width for banner */
   background: #fa5543e0;
+  /* Set background color for banner */
   display: flex;
+  /* Set display type for banner */
   align-items: center;
+  /* Set alignment for banner */
   justify-content: center;
+  /* Set alignment for banner */
   padding: 10px;
+  /* Set padding for banner */
   position: relative;
+  /* Set position to relative for banner */
   flex-wrap: wrap;
+  /* Set flex wrap for banner */
 }
 
 .banner p {
   color: #fff;
+  /* Set text color for paragraph */
   font-weight: 600;
+  /* Set font weight for paragraph */
 }
 
 .banner h2 {
   color: #202936;
-
+  /* Set text color for heading */
 }
 
 .banner p span {
   color: #202936;
+  /* Set text color for span */
   font-weight: 800;
+  /* Set font weight for span */
 }
 
 .banner .img img {
   height: 220px;
+  /* Set height for image */
   width: 230px;
+  /* Set width for image */
 }
 
 .banner .text {
   margin-left: 4rem;
+  /* Set margin left for text */
 }
 
+/* Main Information Section */
 main .info {
   background-image: url("../images/onlypizza_parallex42_black.jpeg");
+  /* Set background image */
 }
 
 .info-odd-bg {
   background: #fff;
+  /* Set background color for odd background */
   color: #202936;
+  /* Set text color for odd background */
   padding: 30px;
-
+  /* Set padding for odd background */
 }
 
 .info-even-bg {
   background: #202936;
+  /* Set background color for even background */
   color: #fff;
+  /* Set text color for even background */
   padding: 30px;
-
+  /* Set padding for even background */
 }
 
-
+/* Category Area */
 .category-area {
   width: 100%;
+  /* Set width for category area */
   display: flex;
+  /* Set display type for category area */
   align-items: center;
+  /* Set alignment for category area */
   justify-content: flex-start;
+  /* Set alignment for category area */
   flex-direction: column;
+  /* Set flex direction for category area */
 }
 
 .category-area .category {
   width: 100%;
+  /* Set width for category */
   display: flex;
+  /* Set display type for category */
   align-items: center;
+  /* Set alignment for category */
   justify-content: center;
+  /* Set alignment for category */
   margin-top: 2rem;
+  /* Set margin top for category */
   flex-wrap: wrap;
+  /* Set flex wrap for category */
 }
 
 .category-area .category .cat-icon {
   display: flex;
+  /* Set display type for category icon */
   align-items: center;
+  /* Set alignment for category icon */
   justify-content: center;
+  /* Set alignment for category icon */
   flex-direction: column;
+  /* Set flex direction for category icon */
   padding: 10px;
+  /* Set padding for category icon */
   width: 90px;
+  /* Set width for category icon */
   border-radius: 10px;
+  /* Set border radius for category icon */
   background-color: #F85546;
+  /* Set background color for category icon */
   margin: 2rem;
+  /* Set margin for category icon */
   transition: all 0.3s ease-in-out;
+  /* Add transition effect for category icon */
   cursor: pointer;
+  /* Set cursor type for category icon */
   color: #fff;
-
+  /* Set text color for category icon */
 }
 
 .category-area .category .cat-icon.active,
 .category-area .category .cat-icon:hover {
   background: #202936;
+  /* Change background color on hover for category icon */
   color: #fff;
+  /* Change text color on hover for category icon */
   transition: all 0.3s ease-in-out;
+  /* Add transition effect on hover for category icon */
 }
 
 .category-area .category .cat-icon .img {
   padding: 10px;
+  /* Set padding for category icon image */
   border-radius: 50%;
+  /* Set border radius for category icon image */
   background: #fff;
+  /* Set background color for category icon image */
   display: flex;
+  /* Set display type for category icon image */
   align-items: center;
+  /* Set alignment for category icon image */
   justify-content: center;
+  /* Set alignment for category icon image */
   margin: 5px 0px;
+  /* Set margin for category icon image */
 }
 
 .category-area .category .cat-icon img {
   width: 30px;
+  /* Set width for category icon image */
   height: 30px;
+  /* Set height for category icon image */
 }
 
-
+/* Authentication Section */
 .auth {
   display: flex;
+  /* Set display type for authentication */
   align-items: center;
+  /* Set alignment for authentication */
   justify-content: center;
+  /* Set alignment for authentication */
   width: 100%;
+  /* Set width for authentication */
   position: relative;
+  /* Set position to relative for authentication */
 }
 
 .auth .logo {
   position: relative;
+  /* Set position to relative for logo */
   top: -4rem;
+  /* Set top position for logo */
 }
 
 .auth .logo img {
   width: 100px;
+  /* Set width for logo image */
   height: 100px;
+  /* Set height for logo image */
 }
 
 .form {
   width: 360px;
+  /* Set width for form */
   background: #fff;
+  /* Set background color for form */
   padding: 15px;
+  /* Set padding for form */
   border-radius: 6px;
+  /* Set border radius for form */
   display: flex;
+  /* Set display type for form */
   flex-direction: column;
+  /* Set flex direction for form */
   align-items: center;
+  /* Set alignment for form */
   justify-content: flex-start;
+  /* Set alignment for form */
   box-shadow: 0 8px 16px rgb(0 0 0 / 8%);
+  /* Add box shadow for form */
 }
 
 .form form {
   width: 100%;
+  /* Set width for form */
   display: flex;
+  /* Set display type for form */
   flex-direction: column;
+  /* Set flex direction for form */
   align-items: center;
+  /* Set alignment for form */
   justify-content: center;
+  /* Set alignment for form */
 }
 
 form input,
 form select {
   border: none;
+  /* Remove border for input/select */
   outline: none;
+  /* Remove outline for input/select */
   padding: 12px 10px;
+  /* Set padding for input/select */
   background: rgb(241, 241, 241);
+  /* Set background color for input/select */
   width: 100%;
+  /* Set width for input/select */
   border-radius: 3px;
+  /* Set border radius for input/select */
   margin: 10px 0;
+  /* Set margin for input/select */
   color: #484848;
+  /* Set text color for input/select */
 }
 
 form .text {
   width: 100%;
+  /* Set width for text */
   text-align: end;
+  /* Set text alignment for text */
   font-size: 15px;
+  /* Set font size for text */
   padding: 10px 0;
+  /* Set padding for text */
 }
 
 form .text a {
-  color: #F85546
+  color: #F85546;
+  /* Set text color for text link */
 }
 
 form button {
   width: 100%;
+  /* Set width for button */
   border-radius: 5px;
+  /* Set border radius for button */
   margin: 20px 0;
+  /* Set margin for button */
   display: flex;
+  /* Set display type for button */
   align-items: center;
+  /* Set alignment for button */
   justify-content: center;
+  /* Set alignment for button */
   background: #202936;
+  /* Set background color for button */
   color: #fff;
+  /* Set text color for button */
   border: none;
+  /* Remove border for button */
   padding: 5px;
+  /* Set padding for button */
 }
 
 .forget {
   width: 100%;
+  /* Set width for forget */
   display: flex;
+  /* Set display type for forget */
   align-items: center;
+  /* Set alignment for forget */
   justify-content: center;
+  /* Set alignment for forget */
 }
 
 .forget a {
   color: #F85546;
+  /* Set text color for forget link */
 }
 
 .err {
   color: #F85546;
+  /* Set text color for error message */
   width: 100%;
+  /* Set width for error message */
   padding: 5px 8px;
+  /* Set padding for error message */
   border-radius: 3px;
+  /* Set border radius for error message */
   background: rgba(243, 79, 79, 0.295);
+  /* Set background color for error message */
   text-align: start;
+  /* Set text alignment for error message */
   font-size: 12px;
+  /* Set font size for error message */
   font-weight: bold;
+  /* Set font weight for error message */
 }
 
 input[type="file"] {
   display: none;
+  /* Hide file input */
 }
 
 .input-group {
   position: relative;
+  /* Set position to relative for input group */
   margin-bottom: 20px;
+  /* Set margin bottom for input group */
 }
-
 
 input:focus {
   border-bottom-color: #202936;
+  /* Change border bottom color on focus for input */
 }
 
 label {
   position: absolute;
+  /* Set position to absolute for label */
   left: 10px;
+  /* Set left position for label */
   top: 50%;
+  /* Set top position for label */
   transform: translateY(-50%);
+  /* Move label up by 50% of its height */
   pointer-events: none;
+  /* Disable pointer events for label */
   transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+  /* Add transition effect for label */
 }
 
 .input-group input::placeholder {
   opacity: 0;
-
+  /* Set opacity to 0 for input placeholder */
 }
 
 .input-group input:focus+label,
 .input-group input:not(:placeholder-shown)+label {
   top: 10px;
+  /* Set top position for label */
   font-size: 14px;
-  color: #202936
+  /* Set font size for label */
+  color: #202936;
+  /* Set text color for label */
 }
 
-
+/* Profile Section */
 .profile-section {
   width: 100%;
+  /* Set width for profile section */
   display: flex;
+  /* Set display type for profile section */
   align-items: center;
+  /* Set alignment for profile section */
   justify-content: flex-start;
+  /* Set alignment for profile section */
   flex-direction: column;
+  /* Set flex direction for profile section */
   background: #fff;
+  /* Set background color for profile section */
   padding: 60px 20px;
+  /* Set padding for profile section */
 }
 
 .profile-photo {
   width: 200px;
+  /* Set width for profile photo */
   height: 200px;
+  /* Set height for profile photo */
   background: #202936;
+  /* Set background color for profile photo */
   display: flex;
+  /* Set display type for profile photo */
   align-items: center;
+  /* Set alignment for profile photo */
   justify-content: center;
+  /* Set alignment for profile photo */
   border-radius: 6px;
+  /* Set border radius for profile photo */
 }
 
 .profile-photo h1 {
   color: #fff;
+  /* Set text color for profile photo */
   font-size: 4rem;
+  /* Set font size for profile photo */
 }
 
 .profile-detail {
   margin-top: 30px;
+  /* Set margin top for profile detail */
   width: 100%;
+  /* Set width for profile detail */
 }
 
 .profile-detail .profile-input {
   width: 60%;
+  /* Set width for profile input */
   margin: 0 auto;
+  /* Set margin for profile input */
 }
 
 .profile-detail .profile-input input {
   width: 100%;
+  /* Set width for input inside profile input */
 }
 
 .profile-detail button {
   width: 60%;
+  /* Set width for button inside profile detail */
   margin: 0 auto;
-  margin-top: 20px;
+  /* Set margin for button inside profile detail */ margin-top: 20px;
+/* Set margin top for button inside profile detail */
 }
 
-
+/* Media Query for Small Screens */
 @media (max-width: 992px) {
   .dropdown-menu.show {
     background: none;
+    /* Remove background for dropdown menu */
     border: none;
+    /* Remove border for dropdown menu */
   }
 
   .dropdown-menu.show a {
     color: #fff;
+    /* Set text color for dropdown menu links */
   }
 }
