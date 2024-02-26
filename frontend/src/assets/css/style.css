@@ -318,6 +318,7 @@ main .info {
   /* Set width for authentication */
   position: relative;
   /* Set position to relative for authentication */
+  min-height: 100vh;
 }
 
 .auth .logo {
@@ -574,8 +575,9 @@ label {
   width: 60%;
   /* Set width for button inside profile detail */
   margin: 0 auto;
-  /* Set margin for button inside profile detail */ margin-top: 20px;
-/* Set margin top for button inside profile detail */
+  /* Set margin for button inside profile detail */
+  margin-top: 20px;
+  /* Set margin top for button inside profile detail */
 }
 
 /* Media Query for Small Screens */
