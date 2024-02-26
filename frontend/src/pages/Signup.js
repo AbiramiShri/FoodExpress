@@ -118,10 +118,8 @@ const Signup = () => {
         </form>
         {/* Link to sign-in */}
         <div className="forget">
-          <p className="mb-0">Already a user?</p>{' '}
-          <Link className="text-uppercase" to="/signin">
-            Login
-          </Link>
+          <p className="mb-0 me-1">Already a user?</p>{' '}
+          <Link to="/signin">Login</Link>
         </div>
       </div>
     </div>

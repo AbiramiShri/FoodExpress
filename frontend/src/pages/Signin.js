@@ -103,7 +103,8 @@ const Signin = () => {
         </form>
         {/* Link to registration */}
         <div className="forget">
-          <p className="mb-0">New user?</p> <Link to="/signup">Register</Link>
+          <p className="mb-0 me-1">New user? </p>{' '}
+          <Link to="/signup"> Register</Link>
         </div>
       </div>
     </div>
