@@ -1,4 +1,4 @@
-import authApi from '../api/authApi'; // Importing authentication API module
+import authApi from '../api/authApi';
 import {
   AUTH_ERROR,
   LOGOUT,
@@ -9,78 +9,71 @@ import {
   UPDATE_PROFILE,
   UPDATE_PROFILE_ERROR,
   UPDATE_PROFILE_REQ,
-} from './types'; // Importing action types
+} from './types';
 
-// Action creator to sign in a user
 export const signinUser = (email, password) => async (dispatch, getState) => {
-  dispatch({type: SIGNIN_REQUEST}); // Dispatching action to indicate signin request is in progress
+  dispatch({type: SIGNIN_REQUEST});
   try {
-    const {data} = await authApi.post('/api/users/signin', {email, password}); // Making API call to signin user
-    dispatch({type: SIGNIN, payload: data}); // Dispatching action with user data upon successful signin
-    localStorage.setItem('User', JSON.stringify(data)); // Storing user data in local storage
+    const {data} = await authApi.post('/api/users/signin', {email, password});
+    dispatch({type: SIGNIN, payload: data});
+    localStorage.setItem('User', JSON.stringify(data));
   } catch (error) {
-    // Handling error if signin fails
     dispatch({
       type: AUTH_ERROR,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message, // Extracting error message from response or using default message
+          : error.message,
     });
   }
 };
 
-// Action creator to sign up a user
 export const signupUser = (name, email, password) => async (dispatch) => {
-  dispatch({type: SIGNUP_REQUEST}); // Dispatching action to indicate signup request is in progress
+  dispatch({type: SIGNUP_REQUEST});
   try {
     const {data} = await authApi.post('/api/users/signup', {
-      // Making API call to signup user
       name,
       email,
       password,
     });
-    dispatch({type: SIGNUP, payload: data}); // Dispatching action with user data upon successful signup
-    localStorage.setItem('User', JSON.stringify(data)); // Storing user data in local storage
+    dispatch({type: SIGNUP, payload: data});
+    dispatch({type: SIGNIN, payload: data});
+    localStorage.setItem('User', JSON.stringify(data));
   } catch (error) {
-    // Handling error if signup fails
     dispatch({
       type: AUTH_ERROR,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message, // Extracting error message from response or using default message
+          : error.message,
     });
   }
 };
 
-// Action creator to update user profile
 export const updateprofile = (userInfo) => async (dispatch, getState) => {
-  dispatch({type: UPDATE_PROFILE_REQ, payload: userInfo}); // Dispatching action to indicate profile update request is in progress
+  dispatch({type: UPDATE_PROFILE_REQ, payload: userInfo});
   try {
-    const user = getState().user?.user; // Getting current user from state
+    const user = getState().user?.user;
     const {data} = await authApi.put('/api/users/updateProfile', userInfo, {
-      // Making API call to update user profile
       headers: {
-        Authorization: `Bearer ${user.token}`, // Sending authorization token in request header
+        Authorization: `Bearer ${user.token}`,
       },
     });
-    dispatch({type: UPDATE_PROFILE, payload: data}); // Dispatching action with updated user data
-    localStorage.setItem('User', JSON.stringify(data)); // Storing updated user data in local storage
+    dispatch({type: UPDATE_PROFILE, payload: data});
+    localStorage.setItem('User', JSON.stringify(data));
+    console.log(data);
   } catch (error) {
-    // Handling error if profile update fails
     dispatch({
       type: UPDATE_PROFILE_ERROR,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message, // Extracting error message from response or using default message
+          : error.message,
     });
   }
 };
 
-// Action creator to logout user
 export const logout = () => async (dispatch) => {
-  localStorage.removeItem('User'); // Removing user data from local storage
-  dispatch({type: LOGOUT}); // Dispatching action to logout user
+  localStorage.removeItem('User');
+  dispatch({type: LOGOUT});
 };

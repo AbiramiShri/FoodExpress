@@ -7,6 +7,21 @@ import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Menu from './pages/Menu';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
+import Shipping from './pages/Shipping';
+import Payment from './pages/Payment';
+import OrderSummry from './pages/OrderSummry';
+import OrderDetails from './pages/OrderDetails';
+import AllOrders from './pages/AllOrders';
+import Search from './pages/Search';
+import Wishlist from './pages/Wishlist';
+import CustomPizza from './pages/CustomPizza';
+import Address from './pages/Address';
+import Admin from './pages/Admin';
+import AdminOrders from './pages/AdminOrders';
+import AddProduct from './pages/AddProduct';
+import EditProduct from './pages/EditProduct';
+import ProductsList from './pages/ProductList';
 
 const App = () => {
   return (
@@ -14,7 +29,7 @@ const App = () => {
     <Router>
       <Fragment>
         {/* Main container for the application */}
-        <main>
+        <main className="mb-3">
           {/* Define routes for different pages */}
           <Routes>
             <Route path="/" element={<Home />} /> {/* Home page */}
@@ -23,6 +38,21 @@ const App = () => {
             <Route path="/profile" element={<Profile />} /> {/* Profile page */}
             <Route path="/menu" element={<Menu />} /> {/* Menu page */}
             <Route path="/contact" element={<Contact />} /> {/* Contact page */}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/order" element={<OrderSummry />} />
+            <Route path="/order/:id" element={<OrderDetails />} />
+            <Route path="/orders" element={<AllOrders />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/custom-pizza" element={<CustomPizza />} />
+            <Route path="/your-address" element={<Address />} />
+            <Route path="/admin-side" element={<Admin />} />
+            <Route path="/admin-orders" element={<AdminOrders />} />
+            <Route path="/add-product" element={<AddProduct />} />
+            <Route path="/edit-product/:id" element={<EditProduct />} />
+            <Route path="/products-list" element={<ProductsList />} />
           </Routes>
         </main>
       </Fragment>

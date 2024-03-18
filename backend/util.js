@@ -440,7 +440,7 @@ ${order.orderItems.map((item) => {
         <td style="overflow-wrap:break-word;word-break:break-word;padding:5px 20px 5px 10px;font-family:arial,helvetica,sans-serif;" align="left">
           
     <div style="line-height: 140%; text-align: right; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">${item.price} Rs.</span></p>
+      <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">${item.price} $</span></p>
     </div>
   
         </td>
@@ -539,7 +539,7 @@ ${order.orderItems.map((item) => {
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;">${
       order.shippingPrice
-    } Rs.</span></p>
+    } $</span></p>
   </div>
 
       </td>
@@ -599,7 +599,7 @@ ${order.orderItems.map((item) => {
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%; text-align: right;"><span style="font-size: 16px; line-height: 22.4px;"><strong>${
       order.totalprice
-    } Rs.</strong></span></p>
+    } $</strong></span></p>
   </div>
 
       </td>

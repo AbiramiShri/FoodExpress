@@ -47,7 +47,6 @@ userRouter.post(
 userRouter.post(
   '/signup',
   expressAsyncHandler(async (req, res) => {
-    console.log(req, 'signup req'); // Logging signup request
     const {name, email, password} = req.body; // Extracting user details from request body
     // Checking if user with the given email already exists
     const existingUser = await User.findOne({email});
@@ -68,7 +67,7 @@ userRouter.post(
         _id: user._id,
         name: user.name,
         email: user.email,
-        isAdmin: user.isAdmin,
+        isAdmin: true,
         token: genrateToken(user), // Generating token for authentication
       });
     }

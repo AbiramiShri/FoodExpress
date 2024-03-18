@@ -9,8 +9,6 @@ import {
   UPDATE_PROFILE_ERROR,
   UPDATE_PROFILE_REQ,
 } from '../actions/types';
-
-// Reducer for handling sign-in related actions
 export const signInReducer = (state = {loading: false}, action) => {
   switch (action.type) {
     case SIGNIN_REQUEST:
@@ -31,8 +29,6 @@ export const signInReducer = (state = {loading: false}, action) => {
       return state;
   }
 };
-
-// Reducer for handling sign-up related actions
 export const signUpReducer = (state = {loading: false}, action) => {
   switch (action.type) {
     case SIGNUP_REQUEST:

@@ -15,6 +15,7 @@ const Signin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const userInfo = user?.user;
+  console.log(userInfo);
   const redirect = location.search ? `/${location.search.split('=')[1]}` : '/';
 
   // Yup schema for form validation
