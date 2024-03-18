@@ -1,8 +1,20 @@
 import {combineReducers} from 'redux';
+import cartReducer from './cartReducer';
+import pizzaReducer from './pizzaReducers';
 import {signInReducer, signUpReducer} from './authReducer';
-
-// Combine signInReducer and signUpReducer into a single root reducer
+import {addressReducer} from './addressReducer';
+import {orderReducer, orderDetail, searchItems} from './ordersReducer';
+import {wishlistReducer} from './wishlistReducer';
+import {sidebarReducer} from './sidebarreducer';
 export default combineReducers({
-  user: signInReducer, // Reducer for managing signed-in user state
-  userRegister: signUpReducer, // Reducer for managing signed-up user state
+  allPizza: pizzaReducer,
+  cart: cartReducer,
+  user: signInReducer,
+  userRegister: signUpReducer,
+  address: addressReducer,
+  order: orderReducer,
+  orderDetails: orderDetail,
+  search: searchItems,
+  wishlist: wishlistReducer,
+  sidebar: sidebarReducer,
 });

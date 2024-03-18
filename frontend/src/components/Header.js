@@ -3,13 +3,14 @@ import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
 import Logo from '../assets/images/logo.jpeg';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/auth';
+import Wishlist from '../pages/Wishlist';
 
 // Header component
 const Header = ({show}) => {
   // Retrieve user data from Redux store
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  console.log(user && user.user && user.isAdmin);
   // Function to get initials from user name
   const getInitials = (name) => {
     return name
@@ -53,17 +54,34 @@ const Header = ({show}) => {
             className="justify-content-end">
             <Nav className="mr-auto">
               {/* Menu link */}
-              <Nav.Link
-                href="Menu"
-                className="me-3 text-end  text-uppercase text-lg-center">
-                Menu
-              </Nav.Link>
-              {/* Contact link */}
-              <Nav.Link
-                href="Contact"
-                className="me-3  text-uppercase text-end text-lg-center">
-                Contact
-              </Nav.Link>
+              {user && user.user && user.user.isAdmin ? (
+                <>
+                  <Nav.Link
+                    href="products-list"
+                    className="me-3 text-end  text-uppercase text-lg-center">
+                    Products List
+                  </Nav.Link>
+                  <Nav.Link
+                    href="add-product"
+                    className="me-3 text-end  text-uppercase text-lg-center">
+                    Add Product
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link
+                    href="Menu"
+                    className="me-3 text-end  text-uppercase text-lg-center">
+                    Menu
+                  </Nav.Link>
+                  <Nav.Link
+                    href="Contact"
+                    className="me-3  text-uppercase text-end text-lg-center">
+                    Contact
+                  </Nav.Link>
+                </>
+              )}
+
               <div>
                 {/* If user is not logged in, show login link */}
                 {!user?.user && (
@@ -84,11 +102,12 @@ const Header = ({show}) => {
                   {/* Dropdown items */}
                   {user?.user && (
                     <Dropdown.Menu>
-                      {/* Profile link */}
                       <Dropdown.Item className="text-end" href="/profile">
                         Profile
                       </Dropdown.Item>
-                      {/* Logout option */}
+                      <Dropdown.Item className="text-end" href="/wishlist">
+                        Wishlist
+                      </Dropdown.Item>
                       <Dropdown.Item
                         className="text-end"
                         onClick={handleSignOut}>

@@ -4,6 +4,9 @@ import cors from 'cors'; // Importing CORS middleware for cross-origin requests
 import mongoose from 'mongoose'; // Importing mongoose for MongoDB connection
 import dotenv from 'dotenv'; // Importing dotenv for environment variables
 import userRouter from './routes/userRouter.js'; // Importing userRouter from custom route file
+import productRouter from './routes/productRouter.js'; // Importing userRouter from custom route file
+
+import orderRouter from './routes/orderRouter.js'; // Importing userRouter from custom route file
 
 dotenv.config(); // Loading environment variables from .env file
 
@@ -33,6 +36,8 @@ app.use(cors());
 
 // Mounting userRouter for handling user-related routes
 app.use('/api/users', userRouter);
+app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
 
 // Error handling middleware to handle server errors
 app.use((err, req, res, next) => {

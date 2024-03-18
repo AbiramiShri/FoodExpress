@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Container, Row, Col} from 'react-bootstrap';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import {Carousel} from 'react-responsive-carousel';
@@ -153,42 +154,54 @@ const Main = () => {
             <div className="category-area">
               <h3 className="text-center text-uppercase">Our Menu</h3>
               <div className="category">
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={pizzaSlice} alt="pizza" />
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={pizzaSlice} alt="pizza" />
+                    </div>
+                    <div className="text">Pizzas</div>
                   </div>
-                  <div className="text">Pizzas</div>
-                </div>
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={Burger} alt="Burger" />
+                </a>
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={Burger} alt="Burger" />
+                    </div>
+                    <div className="text">Burgers</div>
                   </div>
-                  <div className="text">Burgers</div>
-                </div>
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={sandwich} alt="Sandwich" />
+                </a>
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={sandwich} alt="Sandwich" />
+                    </div>
+                    <div className="text">Sandwich</div>
                   </div>
-                  <div className="text">Sandwich</div>
-                </div>
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={smoothie} alt="smoothie" />
+                </a>
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={smoothie} alt="smoothie" />
+                    </div>
+                    <div className="text">smoothies</div>
                   </div>
-                  <div className="text">smoothies</div>
-                </div>
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={popcorn} alt="popcorn" />
+                </a>
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={popcorn} alt="popcorn" />
+                    </div>
+                    <div className="text">Snacks</div>
                   </div>
-                  <div className="text">Snacks</div>
-                </div>
-                <div className="cat-icon">
-                  <div className="img">
-                    <img src={juice} alt="juice" />
+                </a>
+                <a href="/Menu">
+                  <div className="cat-icon">
+                    <div className="img">
+                      <img src={juice} alt="juice" />
+                    </div>
+                    <div className="text">Juice</div>
                   </div>
-                  <div className="text">Juice</div>
-                </div>
+                </a>
               </div>
             </div>
           </section>
