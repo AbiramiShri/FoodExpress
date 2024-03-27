@@ -716,7 +716,7 @@ label {
   display: flex;
   font-size: 12px;
   height: 85px;
-  justify-content: flex-end;
+  justify-content: center;
   line-height: normal;
   margin-bottom: 7px;
   min-width: 100px;
@@ -724,6 +724,9 @@ label {
   text-align: center
 }
 
+#cuisines-items .cat-icon {
+  width: 100%;
+}
 
 #takeaway_list .cuisine-box .select-icon {
   height: 20px;
@@ -1018,15 +1021,24 @@ label {
   justify-content: space-between;
 }
 
+.side-cart-area .cart-area {
+  width: 100%;
+}
+
 .side-cart-area .text p {
-  color: #F85546;
+  color: #202936;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .side-cart-area .text p svg {
   margin-left: 10px;
+}
+
+.wishlist_main {
+  min-height: 100vh;
 }
 
 .side-cart-area button {
@@ -1035,9 +1047,9 @@ label {
   border: none;
   padding: 10px;
   margin-top: 10px;
-  background: #F85546;
+  background: #202936;
   color: #fff;
-  box-shadow: 0px 0px 4px #F85546;
+  box-shadow: 0px 0px 4px #202936;
 }
 
 .user-info {
@@ -1122,10 +1134,10 @@ label {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  flex-wrap: wrap;
 }
 
-.cart-area .all-items {
+.side-cart-area .all-items {
   width: 100%;
 }
 
@@ -1212,8 +1224,8 @@ label {
 }
 
 .cart-card .price span {
-  font-size: 13px;
-  color: #F85546;
+  font-size: 18px;
+  color: #202936;
 }
 
 .billing {
@@ -1224,6 +1236,7 @@ label {
   border-radius: 6px;
   margin-top: 20px;
   margin-left: 40px;
+  margin-bottom: 30px;
 }
 
 .billing h4 {
@@ -1234,7 +1247,7 @@ label {
 }
 
 .billing span {
-  color: #F85546;
+  color: #202936;
 }
 
 .billing .details {
@@ -1682,15 +1695,45 @@ label {
   .all-products .product-card.product-list {
     width: 40%;
   }
+
+  #cuisines-items .cat-icon {
+    width: 25%;
+  }
+
+  .cart-area .all-items {
+    width: 100%;
+  }
+
+  .checkout-area {
+    width: 100%;
+  }
+
+  .billing {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .checkout-area button {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   .leftside {
     height: auto;
   }
 
   .all-products .product-card.product-list {
+    width: 100%;
+  }
+
+  #cuisines-items .cat-icon {
+    width: 45%;
+  }
+
+  .checkout-area {
     width: 100%;
   }
 }

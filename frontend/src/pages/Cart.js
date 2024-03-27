@@ -44,8 +44,7 @@ const Cart = () => {
                   <div className="item">
                     <p>Price</p>
                     <p>
-                      <span>$</span>
-                      {cartPrice}
+                      <span>${cartPrice}</span>
                     </p>
                   </div>
 
@@ -61,11 +60,10 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="total">
-                  <h3>Total</h3>
-                  <h3>
-                    <span>$</span>
-                    {totalPrice}
-                  </h3>
+                  <h5>Total</h5>
+                  <h5>
+                    <span>${totalPrice}</span>
+                  </h5>
                 </div>
               </div>
               <button

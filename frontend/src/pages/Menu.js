@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
 import {useSelector} from 'react-redux';
 import Product from '../components/products/Product';
-import pizzaSlice from '../assets/images/pizzaSlice.png';
-import Burger from '../assets/images/burger.png';
-import juice from '../assets/images/juice.png';
+import pizzaSlice from '../assets/images/pizza.jpeg';
+import Burger from '../assets/images/Big_Mac.jpeg';
+import juice from '../assets/images/Coca-Cola.jpeg';
 
-import popcorn from '../assets/images/popcorn.png';
-import sandwich from '../assets/images/sandwich.png';
-import smoothie from '../assets/images/smoothie.png';
+import popcorn from '../assets/images/Mini_Fry.jpeg';
+import sandwich from '../assets/images/Caesar_Wrap.jpeg';
+import smoothie from '../assets/images/Hot_Fudge_Sundae.jpeg';
 import Cart from '../components/Cart';
 
 const Menu = () => {
@@ -21,7 +21,7 @@ const Menu = () => {
           <Col xs={12} md={12} lg={2} className="mb-4">
             <div id="cuisines-items" className="box-shadow">
               <h5 className="text-center text-uppercase">Items</h5>
-              <div className="category d-flex flex-row flex-wrap flex-lg-column gap-2 justify-content-center align-items-center">
+              <div className="category px-3 d-flex flex-row flex-wrap flex-lg-column gap-2 justify-content-center align-items-center">
                 <div
                   className={`cat-icon box-shadow mb-3 p-1 text-center ${
                     category === 'pizza' && 'active'

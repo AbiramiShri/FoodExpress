@@ -30,7 +30,7 @@ const CartItemCard = ({item}) => {
         <img src={item.image} alt={item.name} />
       </div>
       <div className="des">
-        <h4>{item.name}</h4>
+        <h6>{item.name}</h6>
         {/* <p>Qty: {item.qty}</p> */}
         <div className="handle">
           <div className="qty">
@@ -48,10 +48,9 @@ const CartItemCard = ({item}) => {
         </div>
       </div>
       <div className="price">
-        <h2>
-          <span>$</span>
-          {item.price}
-        </h2>
+        <h4>
+          <span>${item.qty * item.price}</span>
+        </h4>
       </div>
     </div>
   );

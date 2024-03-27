@@ -20,7 +20,7 @@ const Wishlist = () => {
   }, []);
   return (
     <>
-      <div className="mainarea  main-search">
+      <div className="mainarea wishlist_main main-search">
         <div className="all-list search">
           {data.length > 0 ? (
             <div className="all-products">
