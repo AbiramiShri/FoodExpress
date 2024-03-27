@@ -15,7 +15,7 @@ const Cart = ({data, show}) => {
       {show ? null : (
         <div className="side-cart-area">
           <div className="text">
-            <h5>Order Menu</h5>
+            <h5 className="mb-0">Order Menu</h5>
             <Link to="/cart">
               <p>
                 VIEW ALL <BsFillArrowRightSquareFill />
