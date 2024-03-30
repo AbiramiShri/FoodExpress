@@ -6,7 +6,11 @@ import authApi from '../api/authApi';
 const AddProduct = () => {
   const [img, setImg] = useState('');
   const [name, setName] = useState('');
+  const [specialInstruction, setspecialInstruction] = useState('');
+  const [ingredients, setingredients] = useState('');
+
   const [des, setDes] = useState('');
+
   const [price, setPrice] = useState('');
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
@@ -19,7 +23,7 @@ const AddProduct = () => {
     setError('');
 
     // Basic validation checks
-    if (!name || !price || !des || !category || !img) {
+    if (!name || !price || !des || !category || !img || ingredients) {
       setError('Please fill in all fields.');
       return;
     }
@@ -35,6 +39,8 @@ const AddProduct = () => {
         price: parseInt(price),
         image: img,
         category,
+        ingredients,
+        specialInstruction,
       });
       // await setDoc(doc(firestore, db.foodExpress, name), {
       //   name,
@@ -49,6 +55,9 @@ const AddProduct = () => {
       setDes('');
       setPrice('');
       setImg('');
+      setingredients('');
+      setspecialInstruction('');
+
       setFileName('Add Image');
       setCategory('');
       setError('');
@@ -122,6 +131,26 @@ const AddProduct = () => {
                   placeholder="Description"
                 />
                 <label htmlFor="description">Description</label>
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  value={specialInstruction}
+                  onChange={(e) => setDes(e.target.value)}
+                  name="specialInstruction"
+                  placeholder="Special Instruction"
+                />
+                <label htmlFor="specialInstruction">Special Instruction</label>
+              </div>
+              <div className="input-group">
+                <input
+                  type="text"
+                  value={ingredients}
+                  onChange={(e) => setDes(e.target.value)}
+                  name="ingredients"
+                  placeholder="ingredients"
+                />
+                <label htmlFor="ingredients">Ingredients</label>
               </div>
               <select
                 value={category}

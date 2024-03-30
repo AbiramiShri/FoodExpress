@@ -394,7 +394,8 @@ main .info {
 }
 
 form input,
-form select {
+form select,
+form textarea {
   border: none;
   /* Remove border for input/select */
   outline: none;
@@ -833,8 +834,6 @@ label {
 
 .all-products .product-card.product-list button {
 
-
-  width: 100%;
   border-radius: 5px;
   border: none;
   padding: 10px;
@@ -842,6 +841,14 @@ label {
   background: #F85546;
   color: #fff;
   box-shadow: 0px 0px 4px #F85546;
+}
+
+.all-products .product-card.product-list button.edit {
+
+
+  background: #202936;
+  color: #fff;
+  box-shadow: 0px 0px 4px #202936;
 }
 
 .product-card .love {

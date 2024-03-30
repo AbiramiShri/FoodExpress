@@ -1,130 +1,192 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchProductById, updateProduct} from '../actions';
-import Message from '../components/Message';
+import {useParams} from 'react-router-dom';
 import Spinner from '../components/Spinner';
+import Message from '../components/Message';
+import authApi from '../api/authApi';
+import {fetchProductById} from '../actions'; // Assuming you have a fetchProductById action
 
 const EditProduct = () => {
-  const {productId} = useParams(); // Get productId from URL params
+  const {id} = useParams(); // Get productId from URL params
   const dispatch = useDispatch();
-  // const history = useHistory();
-  const [formData, setFormData] = useState({
+  const [productData, setProductData] = useState({
     name: '',
     description: '',
     price: '',
     category: '',
     image: '',
+    ingredients: '',
+    specialInstruction: '',
   });
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
     // Fetch product details when component mounts
-    dispatch(fetchProductById(productId))
-      .then((product) => {
-        console.log('product', product);
-        // Populate form fields with product details
-        setFormData({
-          name: product.name,
-          description: product.description,
-          price: product.price,
-          category: product.category,
-          image: product.image,
-        });
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError('Failed to fetch product details');
-        setLoading(false);
-      });
-  }, [dispatch, productId]);
+    dispatch(fetchProductById(id)); // Dispatch fetchProductById action with productId
+  }, [dispatch, id]);
 
-  const handleInputChange = (e) => {
-    // Update form data when input fields change
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        // Set the image data to state or do whatever you need
-        setFormData({...formData, image: reader.result});
-      };
-      reader.readAsDataURL(file);
+  // Select product details from redux store
+  const productDetails = useSelector((state) => state.productDetails);
+  const {
+    loading: productLoading,
+    error: productError,
+    product,
+  } = productDetails;
+
+  useEffect(() => {
+    // Set form fields with product details after fetching
+    if (product) {
+      setProductData({
+        name: product.name,
+        description: product.description,
+        price: product.price.toString(),
+        category: product.category,
+        image: product.image,
+        specialInstruction: product.specialInstruction,
+        ingredients: product.ingredients,
+      });
     }
-  };
+  }, [product]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
+    // Basic validation checks
+    const {name, description, price, category, image, ingredients} =
+      productData;
+
+    if (
+      !name ||
+      !price ||
+      !description ||
+      !category ||
+      !image ||
+      !ingredients
+    ) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    if (isNaN(parseInt(price))) {
+      setError('Price must be a number.');
+      return;
+    }
+
+    setLoading(true);
     try {
-      // Dispatch updateProduct action to update the product details
-      await dispatch(updateProduct(productId, formData));
-      setSuccessMessage('Product updated successfully');
+      // Make a request to update the product
+      await authApi.put(`/api/products/${id}`, productData);
+      setLoading(false);
+      setShowSuccessMessage(true);
+      setError('');
     } catch (error) {
-      setError('Failed to update product');
+      console.log('error', error);
+      setLoading(false);
+      setError('Failed to update product. Please try again.');
     }
   };
 
-  if (loading) return <Spinner />;
-  if (error) return <Message msg={error} type="error" />;
+  const handleInputChange = (e) => {
+    const {name, value} = e.target;
+    setProductData({
+      ...productData,
+      [name]: value,
+    });
+  };
+
+  const closeModal = () => {
+    setShowSuccessMessage(false);
+  };
+
   return (
-    <div>
-      <h2>Edit Product</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
+    <>
+      <div className="mainarea admin my-3">
+        <div className="auth">
+          <div className="form">
+            <h4>Edit Product</h4>
+            {error && <p className="error-message text-danger">{error}</p>}
+            {loading ? (
+              <Spinner />
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {/* Input fields for product details */}
+                <input
+                  type="text"
+                  name="name"
+                  value={productData.name}
+                  onChange={handleInputChange}
+                  placeholder="Product Name"
+                />
+                <input
+                  type="text"
+                  name="price"
+                  value={productData.price}
+                  onChange={handleInputChange}
+                  placeholder="Price"
+                />
+                <input
+                  type="text"
+                  name="specialInstruction"
+                  value={productData.specialInstruction}
+                  onChange={handleInputChange}
+                  placeholder="Special Instruction"
+                />
+                <input
+                  type="text"
+                  name="ingredients"
+                  value={productData.ingredients}
+                  onChange={handleInputChange}
+                  placeholder="Ingredients"
+                />
+                <textarea
+                  name="description"
+                  value={productData.description}
+                  onChange={handleInputChange}
+                  rows="11"
+                  placeholder="Description"
+                />
+                {/* Select field for category */}
+                <select
+                  name="category"
+                  value={productData.category}
+                  onChange={handleInputChange}>
+                  <option value="">Select Category</option>
+                  <option value="pizza">Pizza</option>
+                  <option value="burger">Burger</option>
+                  <option value="Sandwich">Sandwich</option>
+                  <option value="Smoothy">Smoothie</option>
+                  <option value="Snak">Snacks</option>
+                  <option value="Drink">Drinks</option>
+                </select>
+                {/* Input field for image upload */}
+                <img
+                  src={productData.image}
+                  alt={productData.name}
+                  className="img-fluid"
+                />
+                <input type="file" name="image" onChange={handleInputChange} />
+                <button type="submit">
+                  {loading ? <Spinner /> : 'Update'}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label>Price:</label>
-          <input
-            type="text"
-            name="price"
-            value={formData.price}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label>Category:</label>
-          <input
-            type="text"
-            name="category"
-            value={formData.category}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="input-group">
-          <input
-            type="file"
-            id="file"
-            onChange={handleFileChange}
-            accept="image/*" // Optionally restrict to image files
-          />
-          <label htmlFor="file">Choose Image</label>
-        </div>
-        <button type="submit">Update Product</button>
-      </form>
-      {successMessage && <Message msg={successMessage} type="success" />}
-    </div>
+      </div>
+      {/* Success message modal */}
+      {showSuccessMessage && (
+        <Message
+          showModal={showSuccessMessage}
+          msg={'Product Updated Successfully'}
+          img={'https://example.com/success-image.jpg'} // Update with actual image URL
+          type="success"
+          closeModal={closeModal}
+        />
+      )}
+    </>
   );
 };
 
