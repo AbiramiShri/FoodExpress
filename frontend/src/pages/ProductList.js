@@ -31,6 +31,7 @@ const ProductList = ({category}) => {
     // history.push(`/edit-product/${productId}`);
     // Handle edit logic here, e.g., navigate to edit product page
     console.log('Editing product:', productId);
+    window.location.href = `/edit-product/${productId}`;
   };
 
   const handleDelete = async (productId) => {
@@ -90,12 +91,19 @@ const ProductList = ({category}) => {
                   <h6>{product.name}</h6>
                   <p>{product.description}</p>
                   <h6>Price: ${product.price}</h6>
-                  <button onClick={() => handleDelete(product._id)}>
-                    Delete
-                  </button>
+                  <div className="row justify-content-around align-items-center">
+                    <button
+                      className="col-5 edit"
+                      onClick={() => handleEdit(product._id)}>
+                      Edit
+                    </button>
+                    <button
+                      className="col-5"
+                      onClick={() => handleDelete(product._id)}>
+                      Delete
+                    </button>
+                  </div>
                 </div>
-                {/* <Link to={`/edit-product/${product._id}`}>Edit</Link> */}
-                {/* <button onClick={() => handleEdit(product._id)}>Edit</button> */}
               </div>
             ))}
           </>

@@ -60,6 +60,8 @@ productRouter.post(
       image: req.body.image,
       category: req.body.category,
       price: req.body.price,
+      ingredients: res.body.ingredients,
+      specialInstruction: res.body.specialInstruction,
     });
     const products = await newProduct.save();
 
@@ -93,14 +95,14 @@ productRouter.get(
 );
 
 productRouter.get(
-  '/edit-product/:id',
+  '/:id',
   expressAsyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id);
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
     if (product) {
-      console.log('product backen', product);
-      res.send(product);
+      res.status(200).json(product); // Send the product as JSON response
     } else {
-      res.status(404).send({message: 'Product not found!'});
+      res.status(404).json({message: 'Product not found'}); // Product not found
     }
   })
 );
@@ -125,13 +127,15 @@ productRouter.put(
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
-
     if (product) {
       product.name = req.body.name || product.name;
       product.description = req.body.description || product.description;
       product.image = req.body.image || product.image;
       product.category = req.body.category || product.category;
       product.price = req.body.price || product.price;
+      product.specialInstruction =
+        req.body.specialInstruction || product.specialInstruction;
+      product.ingredients = req.body.ingredients || product.ingredients;
 
       const updatedProduct = await product.save();
 

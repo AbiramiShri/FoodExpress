@@ -40,14 +40,12 @@ export const fetchProducts = () => async (dispatch) => {
   }
 };
 
-export const fetchProductById = (productId) => async (dispatch) => {
+export const fetchProductById = (id) => async (dispatch) => {
   try {
-    console.log('productId', productId);
     dispatch({type: FETCH_PRODUCT_BY_ID_REQUEST});
 
     // Make a request to fetch the product by its ID
-    const response = await authApi.get(`/api/products/${productId}`);
-    console.log('response', response);
+    const response = await authApi.get(`/api/products/${id}`);
     // Dispatch a success action with the fetched product data
     dispatch({
       type: FETCH_PRODUCT_BY_ID_SUCCESS,
