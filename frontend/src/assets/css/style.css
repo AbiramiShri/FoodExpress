@@ -851,6 +851,17 @@ label {
   box-shadow: 0px 0px 4px #202936;
 }
 
+.product-card .specialInstruction {
+  color: #fff;
+  font-family: cursive;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  background: #202936;
+  box-shadow: 0 5px 15px 0 rgb(32 41 54 / 70%), 0 15px 4px 0 rgb(32 41 54 / 1%);
+  border-radius: 4px;
+}
+
 .product-card .love {
   position: absolute;
   top: 10px;

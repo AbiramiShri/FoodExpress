@@ -142,8 +142,14 @@ const ProductCard = ({product}) => {
               <span>$</span>
               {item?.price}
             </p>
-            <p>{item.specialInstruction}</p>
-            <p>{item.ingredients}</p>
+            {item.specialInstruction && (
+              <p className="specialInstruction">{item.specialInstruction}</p>
+            )}
+            {item.ingredients && (
+              <p className="text-capitalize">
+                <b>Ingredients:</b> {item.ingredients}
+              </p>
+            )}
           </div>
           <div className="add-button" onClick={() => cartHandler(item)}>
             <IoMdAdd />

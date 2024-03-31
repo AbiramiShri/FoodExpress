@@ -70,7 +70,7 @@ const Menu = () => {
                   <div className="cuisine-box">
                     <img className="img-fluid" src={popcorn} alt="Snacks" />
                   </div>
-                  <div className="cuisine-title">Snacks</div>
+                  <div className="cuisine-title">Sides</div>
                 </div>
                 <div
                   className={`cat-icon box-shadow mb-3 p-1 text-center  ${
