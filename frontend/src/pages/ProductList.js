@@ -59,7 +59,7 @@ const ProductList = ({category}) => {
             <option value="Burger">Burger</option>
             <option value="Sandwich">Sandwich</option>
             <option value="Smoothy">Smoothies</option>
-            <option value="Snak">Snacks</option>
+            <option value="Snak">Sides</option>
             <option value="Drink">Drinks</option>
             {/* Add other categories as needed */}
           </select>
