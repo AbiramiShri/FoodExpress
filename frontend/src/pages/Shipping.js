@@ -73,7 +73,7 @@ const Shipping = () => {
         </div>
         <div className="shipping-details">
           <div className="address">
-            <h3>Select Delivery Address</h3>
+            <h4>Select Delivery Address</h4>
             <div className="add-sec-area">
               {allAdress.length > 0 ? (
                 allAdress.map((address, i) => (
@@ -86,7 +86,7 @@ const Shipping = () => {
                       {address.address},{address.town}
                     </span>
                     <span>
-                      {address.city},{address.state} -{address.pinCode}{' '}
+                      {address.city},{address.state} - {address.pinCode}{' '}
                     </span>
                     <span>
                       <b>Mobile No:</b>
@@ -94,26 +94,26 @@ const Shipping = () => {
                     </span>
                     <div className="btns">
                       <button
-                        className="btn"
-                        onClick={() => delteAddress(address._id)}>
-                        Remove
-                      </button>
-                      <button
-                        className="btn"
+                        className="btn edit"
                         onClick={() => handleUpdateAddress(address)}>
                         Edit
+                      </button>
+                      <button
+                        className="btn remove"
+                        onClick={() => delteAddress(address._id)}>
+                        Remove
                       </button>
                     </div>
                   </div>
                 ))
               ) : (
-                <h3 style={{padding: '20px 0'}}>No Address found! Add one</h3>
+                <h6 style={{padding: '20px 0'}}>No Address found! Add one</h6>
               )}
 
               <div className="add-address" onClick={() => setShow(true)}>
                 <div className="add">
                   <RiAddFill />
-                  <p>Add Address</p>
+                  <p className="mb-0">Add Address</p>
                 </div>
               </div>
             </div>

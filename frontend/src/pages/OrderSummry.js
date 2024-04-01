@@ -3,8 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {getAdress, selectAddress} from '../actions/address';
 import {placeOrder} from '../actions/orders';
-import authApi from '../api/authApi';
-import logo from '../assets/images/logo.jpeg';
 import Message from '../components/Message';
 import Spinner from '../components/Spinner';
 const OrderSummry = () => {
@@ -38,25 +36,8 @@ const OrderSummry = () => {
         itemsPrice: cartPrice,
         totalprice: totalPrice,
         shippingPrice: deliveryPrice,
-        email: user.eamil,
+        email: user.email,
         userName: user.name,
-      })
-    );
-  };
-
-  const PaymentHandler = (paymentResult) => {
-    const {razorpay_payment_id} = paymentResult;
-    dispatch(
-      placeOrder({
-        orderItems: cartItems,
-        shippingAddress: address,
-        paymentMethod: paymentMethod,
-        itemsPrice: cartPrice,
-        totalprice: totalPrice,
-        shippingPrice: deliveryPrice,
-        email: user.eamil,
-        userName: user.name,
-        paymentId: razorpay_payment_id,
       })
     );
   };
@@ -67,6 +48,7 @@ const OrderSummry = () => {
 
   useEffect(() => {
     if (sucess) {
+      console.log(order);
       navigate(`/order/${order._id}`);
     }
   }, [sucess, order]);
@@ -82,52 +64,52 @@ const OrderSummry = () => {
   }, []);
 
   // load razorpay script tag
-  const loadScripts = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = src;
+  // const loadScripts = (src) => {
+  //   return new Promise((resolve) => {
+  //     const script = document.createElement('script');
+  //     script.src = src;
 
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
+  //     script.onload = () => {
+  //       resolve(true);
+  //     };
+  //     script.onerror = () => {
+  //       resolve(false);
+  //     };
+  //     document.body.appendChild(script);
+  //   });
+  // };
 
-  const options = {
-    key: 'rzp_test_NYUPSveWybUfyq', // Enter the Key ID generated from the Dashboard
-    currency: 'INR',
-    //  "amount":data?.price*100,
-    amount: totalPrice * 100,
-    name: 'Pizza Delivery',
-    image: logo,
-    description: address.name,
-    //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    handler: function (response) {
-      PaymentHandler(response);
-    },
-    prefill: {
-      name: address.name,
-      email: user?.eamil,
-      contact: `${91}${address.mobNo}`,
-    },
-  };
+  // const options = {
+  //   key: 'rzp_test_NYUPSveWybUfyq', // Enter the Key ID generated from the Dashboard
+  //   currency: 'INR',
+  //   //  "amount":data?.price*100,
+  //   amount: totalPrice * 100,
+  //   name: 'Pizza Delivery',
+  //   image: logo,
+  //   description: address.name,
+  //   //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+  //   handler: function (response) {
+  //     PaymentHandler(response);
+  //   },
+  //   prefill: {
+  //     name: address.name,
+  //     email: user?.eamil,
+  //     contact: `${91}${address.mobNo}`,
+  //   },
+  // };
 
-  const payOnline = async (e) => {
-    e.preventDefault();
-    const res = await loadScripts(
-      'https://checkout.razorpay.com/v1/checkout.js'
-    );
-    if (!res) {
-      alert('faild to load script');
-    }
+  // const payOnline = async (e) => {
+  //   e.preventDefault();
+  //   const res = await loadScripts(
+  //     'https://checkout.razorpay.com/v1/checkout.js'
+  //   );
+  //   if (!res) {
+  //     alert('faild to load script');
+  //   }
 
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-  };
+  //   const paymentObject = new window.Razorpay(options);
+  //   paymentObject.open();
+  // };
 
   const getPaymentButton = () => {
     if (paymentMethod === 'COD') {
@@ -139,26 +121,26 @@ const OrderSummry = () => {
         </button>
       );
     }
-    if (paymentMethod === 'razorpay') {
-      return (
-        <div className="razorpay" onClick={payOnline}>
-          <img
-            src="https://razorpay.com/blog-content/uploads/2020/10/rzp-glyph-positive.png"
-            alt=""
-          />
-          <p>Razorpay</p>
-        </div>
-      );
-    }
+    // if (paymentMethod === 'razorpay') {
+    //   return (
+    //     <div className="razorpay" onClick={payOnline}>
+    //       <img
+    //         src="https://razorpay.com/blog-content/uploads/2020/10/rzp-glyph-positive.png"
+    //         alt=""
+    //       />
+    //       <p>Razorpay</p>
+    //     </div>
+    //   );
+    // }
   };
 
   const getPaymentMethodText = () => {
     if (paymentMethod === 'COD') {
       return 'CASH ON DELIVERY';
     }
-    if (paymentMethod === 'razorpay') {
-      return 'RAZORPAY';
-    }
+    // if (paymentMethod === 'razorpay') {
+    //   return 'RAZORPAY';
+    // }
   };
 
   return (
@@ -205,8 +187,8 @@ const OrderSummry = () => {
                       <img src={item.image} alt={item.name} />
                     </div>
                     <div className="des">
-                      <h3>{item.name}</h3>
-                      <p>qty:{item.qty}</p>
+                      <h6>{item.name}</h6>
+                      <p>Quantity: {item.qty}</p>
                       <p className="des">
                         {item.description
                           ? item.description

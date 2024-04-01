@@ -1,9 +1,11 @@
 // Importing necessary modules and files
 import express from 'express'; // Importing Express framework
 import User from '../models/user.js'; // Importing User model
+
 import bcrypt from 'bcrypt'; // Importing bcrypt for password hashing
 import expressAsyncHandler from 'express-async-handler'; // Middleware to handle asynchronous functions
-import {genrateToken} from '../util.js'; // Importing utility function to generate token
+import {genrateToken, isAuth} from '../util.js'; // Importing utility function to generate token
+import Address from '../models/address.js';
 
 // Creating a router instance
 const userRouter = express.Router();
@@ -74,5 +76,85 @@ userRouter.post(
   })
 );
 
-// Exporting the userRouter for use in other files
+//post route for adding address
+
+userRouter.get(
+  '/shipping/:id',
+  expressAsyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const address = await Address.find({userId: id});
+    res.send(address);
+  })
+);
+
+userRouter.delete(
+  '/address/:id',
+  expressAsyncHandler(async (req, res) => {
+    await Address.deleteOne({_id: req.params.id});
+    res.send({id: req.params.id});
+  })
+);
+userRouter.put(
+  '/address/:id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const address = await Address.findById(req.params.id);
+
+    if (address) {
+      address.name = req.body.name;
+      address.mobNo = req.body.mobNo;
+      address.pinCode = req.body.pinCode;
+      address.address = req.body.address;
+      address.town = req.body.town;
+      address.state = req.body.state;
+      address.city = req.body.city;
+      const newAddress = await address.save();
+      res.send(newAddress);
+    } else {
+      res.status(404).send({message: 'Address not found !'});
+    }
+  })
+);
+
+userRouter.post(
+  '/address',
+  expressAsyncHandler(async (req, res) => {
+    const newAdress = Address({
+      name: req.body.name,
+      mobNo: req.body.mobNo,
+      pinCode: req.body.pinCode,
+      address: req.body.address,
+      town: req.body.town,
+      state: req.body.state,
+      city: req.body.city,
+      userId: req.body.userId,
+    });
+    const address = await newAdress.save();
+    res.send(address);
+  })
+);
+
+userRouter.put(
+  '/updateProfile',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+    if (user) {
+      user.name = req.body.name;
+      user.mobNo = req.body.mobNo;
+      const updatedUser = await user.save();
+      res.send({
+        _id: user._id,
+        name: updatedUser.name,
+        eamil: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+        mobNo: updatedUser.mobNo,
+        token: genrateToken(updatedUser),
+      });
+    } else {
+      res.status(404).send({message: 'User not found'});
+    }
+  })
+);
+
 export default userRouter;

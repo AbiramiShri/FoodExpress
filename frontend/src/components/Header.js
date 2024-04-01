@@ -92,7 +92,7 @@ const Header = ({show}) => {
                   </Nav.Link>
                 )}
                 {/* Dropdown menu */}
-                <Dropdown className="text-end">
+                <Dropdown className="text-center">
                   {/* If user is logged in, show user initials */}
                   {user?.user && (
                     <Dropdown.Toggle className="btn" id="dropdown-basic">
@@ -102,14 +102,17 @@ const Header = ({show}) => {
                   {/* Dropdown items */}
                   {user?.user && (
                     <Dropdown.Menu>
-                      <Dropdown.Item className="text-end" href="/profile">
+                      <Dropdown.Item className="text-center" href="/profile">
                         Profile
                       </Dropdown.Item>
-                      <Dropdown.Item className="text-end" href="/wishlist">
+                      <Dropdown.Item className="text-center" href="/orders">
+                        Order History
+                      </Dropdown.Item>
+                      <Dropdown.Item className="text-center" href="/wishlist">
                         Wishlist
                       </Dropdown.Item>
                       <Dropdown.Item
-                        className="text-end"
+                        className="text-center"
                         onClick={handleSignOut}>
                         Logout
                       </Dropdown.Item>

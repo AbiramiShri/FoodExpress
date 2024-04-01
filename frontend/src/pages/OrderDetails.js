@@ -26,7 +26,6 @@ const OrderDetails = () => {
     paymentMethod,
   } = order;
   const [show, setShow] = useState(sucess);
-  console.log(sucess);
   return (
     <>
       <div className="shipping">
@@ -35,7 +34,7 @@ const OrderDetails = () => {
             <div className="shippingshippingAddress">
               <h3>ORDER DETAILS</h3>
               <div className="add-sec-area">
-                <h4 style={{margin: '20px 0'}}>Order ID:{_id}</h4>
+                <h4 style={{margin: '20px 0'}}>Order ID: {_id}</h4>
                 <h4>Shipping</h4>
                 {shippingAddress && (
                   <div className={`og-add`}>
@@ -63,13 +62,9 @@ const OrderDetails = () => {
                         <img src={item.image} alt={item.name} />
                       </div>
                       <div className="des">
-                        <h3>{item.name}</h3>
-                        <p>Qty: {item.qty}</p>
-                        <p className="des">
-                          {item.description
-                            ? item.description
-                            : 'Treat your taste buds with Double Pepper Barbecue Chicken, Peri-Peri Chicken, Chicken Tikka & Grilled Chicken Rashers'}
-                        </p>
+                        <h6>{item.name}</h6>
+                        <p>Quantity: {item.qty}</p>
+                        <p className="des">{item.description}</p>
                       </div>
                       <div className="price">
                         <h2>

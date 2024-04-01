@@ -31,7 +31,6 @@ const CartItemCard = ({item}) => {
       </div>
       <div className="des">
         <h6>{item.name}</h6>
-        {/* <p>Qty: {item.qty}</p> */}
         <div className="handle">
           <div className="qty">
             <div className="btn" onClick={decreaseQty}>

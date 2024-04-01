@@ -12,6 +12,16 @@ footer {
   /* Set text color for header and footer */
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 a {
   text-decoration: none;
@@ -1130,7 +1140,6 @@ label {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
   flex-direction: column;
 }
 
@@ -1144,8 +1153,14 @@ label {
 }
 
 .cart-screen button {
-  width: 110px;
-  padding: 8px 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  background: #202936;
+  color: #fff;
+  box-shadow: 0px 0px 4px #202936;
 }
 
 .cart-area {
@@ -1313,6 +1328,7 @@ label {
   color: #fff;
   box-shadow: 0px 0px 4px #202936;
   border: none;
+  padding: 10px;
 }
 
 .free {
@@ -1375,19 +1391,43 @@ label {
 }
 
 .og-add span {
-  color: #F85546;
+  color: #202936;
   font-size: 14px;
   margin: 3px 0;
 }
 
 .og-add .btns {
   margin-top: 10px;
+  width: 100%;
 }
 
-.og-add .btns button {
-  border-radius: 3px;
-  margin: 0 10px;
+
+.og-add .btns button.edit {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  background: #202936;
+  color: #fff;
+  box-shadow: 0px 0px 4px #202936;
+  margin-right: 10px;
+  width: 45%;
+  text-transform: uppercase;
 }
+
+.og-add .btns button.remove {
+
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  background: #F85546;
+  color: #fff;
+  box-shadow: 0px 0px 4px #F85546;
+  width: 45%;
+  text-transform: uppercase;
+}
+
 
 .add-address {
   padding: 20px;
@@ -1488,6 +1528,10 @@ label {
 
 .select-opt label {
   margin-left: 10px;
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
 }
 
 .address .cart-area {
@@ -1514,7 +1558,11 @@ label {
   border-radius: 3px;
 }
 
-.address .cart-area .cart-card p,
+.address .cart-area .cart-card p {
+  color: #202936;
+
+}
+
 .address .cart-area .cart-card span {
   color: #F85546;
 }
@@ -1628,12 +1676,12 @@ label {
 
 .display-orders {
   width: 100%;
-  height: 700px;
   overflow-y: auto;
   display: flex;
-  align-content: flex-start;
+  align-items: center;
   justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 30px;
 }
 
 .order-detail-card {
@@ -1658,11 +1706,11 @@ label {
 }
 
 .order-detail-card .details h4 {
-  color: rgb(82, 82, 82);
+  color: #F85546;
 }
 
 .order-detail-card .details p {
-  color: rgb(104, 104, 104);
+  color: #202936;
 }
 
 .order-detail-card .status {
@@ -1735,6 +1783,11 @@ label {
     margin-left: 0;
     width: 100%;
   }
+
+  .shipping-details {
+    gap: 30px;
+    width: 90%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1753,5 +1806,24 @@ label {
 
   .checkout-area {
     width: 100%;
+  }
+
+  .shipping-details {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .address,
+  .shipping-details .checkout-area {
+    width: 100%;
+  }
+
+  .display-orders {
+    flex-direction: column;
+  }
+
+  .shipping-details .cart-area .cart-card {
+    flex-direction: column;
   }
 }

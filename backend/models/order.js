@@ -30,7 +30,7 @@ const orderSchema = new moongoose.Schema(
         required: true,
       },
       pinCode: {
-        type: Number,
+        type: String,
         required: true,
       },
       address: {
@@ -68,10 +68,7 @@ const orderSchema = new moongoose.Schema(
     paymentId: {
       type: String,
     },
-    email: {
-      type: String,
-      required: true,
-    },
+
     userName: {
       type: String,
       required: true,

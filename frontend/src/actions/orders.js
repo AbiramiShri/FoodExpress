@@ -18,7 +18,6 @@ export const selectPayment = (payment) => async (dispatch) => {
 
 export const placeOrder = (order) => async (dispatch, getState) => {
   dispatch({type: CREATE_ORDER_REQUEST, payload: order});
-  console.log(order);
   try {
     const user = getState().user?.user;
     const {data} = await authApi.post('/api/orders', order, {
@@ -27,19 +26,6 @@ export const placeOrder = (order) => async (dispatch, getState) => {
       },
     });
 
-    console.log('data', '=>', data?.order.orderItems);
-    data?.order.orderItems?.map((item) => {
-      console.log('exicution');
-      const docRef = doc(firestore, db.pizzas, item.name);
-      getDoc(docRef).then((docSnap) => {
-        console.log(docSnap.data());
-        const inStockItem = docSnap.data().inStockItem;
-        const ref = doc(firestore, db.pizzas, item.name);
-        updateDoc(ref, {
-          inStockItem: inStockItem - item.qty,
-        }).then(() => console.log('added sucessfully'));
-      });
-    });
     dispatch({type: CREATE_ORDER, payload: data.order});
     dispatch({type: DELETE_CART});
     localStorage.removeItem('cartItems');
@@ -63,7 +49,6 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${user.token}`,
       },
     });
-    console.log(data);
     dispatch({type: ORDER_DETAIlS, payload: data});
   } catch (error) {
     dispatch({

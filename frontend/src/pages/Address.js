@@ -48,14 +48,14 @@ const Address = () => {
                   </span>
                   <div className="btns">
                     <button
-                      className="btn"
-                      onClick={() => delteAddress(address._id)}>
-                      Remove
-                    </button>
-                    <button
-                      className="btn"
+                      className="btn edit"
                       onClick={() => handleUpdateAddress(address)}>
                       Edit
+                    </button>
+                    <button
+                      className="btn remove"
+                      onClick={() => delteAddress(address._id)}>
+                      Remove
                     </button>
                   </div>
                 </div>
