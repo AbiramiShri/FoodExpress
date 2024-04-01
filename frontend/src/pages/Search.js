@@ -12,7 +12,6 @@ const Search = () => {
   const error = useSelector((state) => state.search?.error);
   const location = useLocation();
   const query = location.search.split('=')[1];
-  //    console.log(query)
   const [show, setShow] = useState(error ? true : false);
   const data = useSelector((state) => state.search?.allPorducts);
   const loading = useSelector((state) => state.search?.loading);

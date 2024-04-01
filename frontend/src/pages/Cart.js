@@ -78,7 +78,7 @@ const Cart = () => {
             <img src={emtycart} alt="" />
             <h2>Hey, it feels so light!</h2>
             <p>There is nothing in your bag. Let's add some items.</p>
-            <Link to="/">
+            <Link to="/Menu">
               <button>Go Back</button>
             </Link>
           </>

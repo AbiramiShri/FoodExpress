@@ -83,7 +83,6 @@ const EditProduct = () => {
       setShowSuccessMessage(true);
       setError('');
     } catch (error) {
-      console.log('error', error);
       setLoading(false);
       setError('Failed to update product. Please try again.');
     }

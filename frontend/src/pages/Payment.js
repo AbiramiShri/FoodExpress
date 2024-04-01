@@ -22,7 +22,6 @@ const Payment = () => {
     navigate('/order');
   };
 
-  console.log(paymentType);
 
   useEffect(() => {
     if (!user) {
@@ -58,12 +57,12 @@ const Payment = () => {
                 />
                 <label htmlFor="cod">CASH ON DELIVERY</label>
               </div>
-              <div
+              {/* <div
                 className="select-opt"
                 onClick={() => setPaymentType('razorpay')}>
                 <input type="radio" value="paypal" name="payment" id="paypal" />
                 <label htmlFor="paypal">RAZORPAY</label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

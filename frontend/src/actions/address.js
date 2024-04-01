@@ -35,7 +35,6 @@ export const addAddress =
 export const getAdress = (id) => async (dispatch) => {
   try {
     const {data} = await authApi.get(`/api/users/shipping/${id}`);
-    // console.log(data)
     dispatch({type: GET_ADDRESS, payload: data});
   } catch (error) {
     dispatch({
@@ -78,7 +77,6 @@ export const updateAddress =
           },
         }
       );
-      console.log(data);
       dispatch({type: UPDATE_ADDRESS, payload: data});
     } catch (error) {
       dispatch({

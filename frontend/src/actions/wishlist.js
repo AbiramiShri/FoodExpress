@@ -9,7 +9,6 @@ import {
 } from './types';
 
 export const addToWishlist = (item) => async (dispatch, getState) => {
-  console.log(item);
   dispatch({type: ADD_WISHLIST_REQ, payload: item});
   try {
     const user = getState().user?.user;
