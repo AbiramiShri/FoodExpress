@@ -832,7 +832,7 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin: 0 30px;
+  margin: 0 5px;
   margin-top: 20px;
   position: relative;
 }
@@ -1141,6 +1141,7 @@ label {
   justify-content: center;
   width: 100%;
   flex-direction: column;
+  background: rgb(241, 241, 241);
 }
 
 .cart-screen img {
@@ -1148,7 +1149,6 @@ label {
 }
 
 .cart-screen p {
-  color: #F85546;
   margin: 10px 0;
 }
 
@@ -1350,7 +1350,7 @@ label {
 
 .shipping-details {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 80%;
 }
@@ -1386,7 +1386,6 @@ label {
 }
 
 .og-add p {
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -1682,10 +1681,11 @@ label {
   justify-content: flex-start;
   flex-direction: row;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .order-detail-card {
-  width: 100%;
+  width: 410px;
   background: #fff;
   margin: 20px 0px;
   padding: 20px;
@@ -1693,7 +1693,9 @@ label {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* height: 160px; */
+  height: 220px;
+  overflow: scroll;
+  align-items: flex-start;
 }
 
 .order-detail-card img {
@@ -1733,12 +1735,14 @@ label {
 
 .image-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   padding: 10px 0;
 }
 
-
+.display-orders {
+  margin-bottom: 50px;
+}
 
 /* Media Query for Small Screens */
 @media (max-width: 992px) {
@@ -1788,6 +1792,10 @@ label {
     gap: 30px;
     width: 90%;
   }
+
+  .display-orders {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1825,5 +1833,13 @@ label {
 
   .shipping-details .cart-area .cart-card {
     flex-direction: column;
+  }
+
+  .display-orders {
+    justify-content: center;
+  }
+
+  .order-detail-card {
+    width: 100%;
   }
 }

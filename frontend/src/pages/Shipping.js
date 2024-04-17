@@ -107,7 +107,7 @@ const Shipping = () => {
                   </div>
                 ))
               ) : (
-                <h6 style={{padding: '20px 0'}}>No Address found! Add one</h6>
+                <p style={{padding: '20px 0'}}>No Address found! Add one</p>
               )}
 
               <div className="add-address" onClick={() => setShow(true)}>
@@ -121,7 +121,7 @@ const Shipping = () => {
 
           <div className="checkout-area">
             <div className="billing">
-              <h4>PRICE DETAILS</h4>
+              <h6>PRICE DETAILS</h6>
               <div className="details">
                 <div className="item">
                   <p>Price</p>
@@ -143,11 +143,8 @@ const Shipping = () => {
                 </div>
               </div>
               <div className="total">
-                <h3>Total</h3>
-                <h3>
-                  <span>$</span>
-                  {totalPrice}
-                </h3>
+                <h6>Total</h6>
+                <h6>${totalPrice}</h6>
               </div>
             </div>
             <button

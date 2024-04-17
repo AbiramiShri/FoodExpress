@@ -44,7 +44,7 @@ const Payment = () => {
       </div>
       <div className="shipping-details">
         <div className="address">
-          <h3>Select Payment type</h3>
+          <h4>Select Payment type</h4>
           <div className="payments-opts">
             <div className="payment-method">
               <div className="select-opt" onClick={() => setPaymentType('COD')}>
@@ -68,7 +68,7 @@ const Payment = () => {
         </div>
         <div className="checkout-area">
           <div className="billing">
-            <h4>PRICE DETAILS</h4>
+            <h6>PRICE DETAILS</h6>
             <div className="details">
               <div className="item">
                 <p>Price</p>
@@ -90,11 +90,8 @@ const Payment = () => {
               </div>
             </div>
             <div className="total">
-              <h3>Total</h3>
-              <h3>
-                <span>$</span>
-                {totalPrice}
-              </h3>
+              <h6>Total</h6>
+              <h6>${totalPrice}</h6>
             </div>
           </div>
           <button

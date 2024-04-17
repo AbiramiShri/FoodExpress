@@ -106,9 +106,9 @@ const Profile = () => {
           ) : (
             // If user is not logged in, display login prompt
             <div>
-              <h1>
-                You are not Logged In!, Please <Link to="/signin">Login</Link>
-              </h1>
+              <h6>
+                You are not Logged In! Please <Link to="/signin">Login</Link>
+              </h6>
             </div>
           )}
         </div>

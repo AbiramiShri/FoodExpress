@@ -30,15 +30,25 @@ const OrderDetails = () => {
     <>
       <div className="shipping">
         {!loading ? (
-          <div className="shipping-details">
+          <div className="shipping-details mt-5">
             <div className="shippingshippingAddress">
-              <h3>ORDER DETAILS</h3>
+              <h4>ORDER DETAILS</h4>
               <div className="add-sec-area">
-                <h4 style={{margin: '20px 0'}}>Order ID: {_id}</h4>
-                <h4>Shipping</h4>
                 {shippingAddress && (
                   <div className={`og-add`}>
-                    <p>{shippingAddress.name}</p>
+                    <h6>Items</h6>
+                    {orderItems?.map((item) => (
+                      <div className="des">
+                        <p>
+                          {item.qty} x {item.name} = ${item.price}
+                        </p>
+                      </div>
+                    ))}
+                    <h6 class="text-start mt-4">Shipping</h6>
+
+                    <p className="fw-bold">Order ID: {_id}</p>
+
+                    <p className="fw-bold">{shippingAddress.name}</p>
                     <span>
                       {shippingAddress.address},{shippingAddress.town}
                     </span>
@@ -47,47 +57,23 @@ const OrderDetails = () => {
                       {shippingAddress.pinCode}{' '}
                     </span>
                     <span>
-                      <b>Mobile No:</b>
+                      <span>Mobile No:</span>
                       {shippingAddress.mobNo}
                     </span>
+                    <h6 class="text-start mt-4">Payment Method</h6>
+
+                    <div className="select-opt w-100">
+                      <label htmlFor="cod">
+                        {paymentMethod?.toUpperCase()}
+                      </label>
+                    </div>
                   </div>
                 )}
-              </div>
-              <h4>Products</h4>
-              <div className="cart-area">
-                <div className="all-items">
-                  {orderItems?.map((item) => (
-                    <div className="cart-card" key={item.product}>
-                      <div className="img">
-                        <img src={item.image} alt={item.name} />
-                      </div>
-                      <div className="des">
-                        <h6>{item.name}</h6>
-                        <p>Quantity: {item.qty}</p>
-                        <p className="des">{item.description}</p>
-                      </div>
-                      <div className="price">
-                        <h2>
-                          <span>$</span>
-                          {item.price}
-                        </h2>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <h4>Payment Method</h4>
-              <div className="payments-opts">
-                <div className="payment-method">
-                  <div className="select-opt">
-                    <label htmlFor="cod">{paymentMethod?.toUpperCase()}</label>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="checkout-area">
               <div className="billing">
-                <h4>PRICE DETAILS</h4>
+                <h6>PRICE DETAILS</h6>
                 <div className="details">
                   <div className="item">
                     <p>Price</p>
@@ -109,11 +95,8 @@ const OrderDetails = () => {
                   </div>
                 </div>
                 <div className="total">
-                  <h3>Total</h3>
-                  <h3>
-                    <span>$</span>
-                    {totalprice?.toFixed(2)}
-                  </h3>
+                  <h6>Total</h6>
+                  <h6>${totalprice?.toFixed(2)}</h6>
                 </div>
               </div>
             </div>

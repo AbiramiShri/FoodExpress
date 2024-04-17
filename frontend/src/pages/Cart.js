@@ -29,7 +29,7 @@ const Cart = () => {
     <Container>
       {/* <SideBar/> */}
       <div className="cart-screen">
-        <h1>MY CART</h1>
+        <h2>MY CART</h2>
         {cartItems?.length > 0 ? (
           <div className="cart-area">
             <div className="all-items">
@@ -37,9 +37,9 @@ const Cart = () => {
                 <CartItemCard key={item.product} item={item} />
               ))}
             </div>
-            <div className="checkout-area">
+            <div className="checkout-area mb-5 mb-sm-0">
               <div className="billing">
-                <h4>PRICE DETAILS</h4>
+                <h6>PRICE DETAILS</h6>
                 <div className="details">
                   <div className="item">
                     <p>Price</p>
@@ -60,10 +60,8 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="total">
-                  <h5>Total</h5>
-                  <h5>
-                    <span>${totalPrice}</span>
-                  </h5>
+                  <h6>Total</h6>
+                  <h6>${totalPrice}</h6>
                 </div>
               </div>
               <button

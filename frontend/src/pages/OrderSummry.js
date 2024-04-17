@@ -159,9 +159,9 @@ const OrderSummry = () => {
         </div>
         <div className="shipping-details">
           <div className="address">
-            <h3>ORDER SUMMRY</h3>
+            <h4>ORDER SUMMARY</h4>
             <div className="add-sec-area">
-              <h4>Shipping</h4>
+              <h6 className="text-start">Shipping</h6>
               {address && (
                 <div className={`og-add`}>
                   <p>{address.name}</p>
@@ -178,7 +178,7 @@ const OrderSummry = () => {
                 </div>
               )}
             </div>
-            <h4>Products</h4>
+            <h6>Products</h6>
             <div className="cart-area">
               <div className="all-items">
                 {cartItems.map((item) => (
@@ -187,7 +187,7 @@ const OrderSummry = () => {
                       <img src={item.image} alt={item.name} />
                     </div>
                     <div className="des">
-                      <h6>{item.name}</h6>
+                      <p>{item.name}</p>
                       <p>Quantity: {item.qty}</p>
                       <p className="des">
                         {item.description
@@ -205,7 +205,7 @@ const OrderSummry = () => {
                 ))}
               </div>
             </div>
-            <h4>Payment Method</h4>
+            <h6>Payment Method</h6>
             <div className="payments-opts">
               <div className="payment-method">
                 <div className="select-opt">
@@ -216,7 +216,7 @@ const OrderSummry = () => {
           </div>
           <div className="checkout-area">
             <div className="billing">
-              <h4>PRICE DETAILS</h4>
+              <h6>PRICE DETAILS</h6>
               <div className="details">
                 <div className="item">
                   <p>Price</p>
@@ -238,11 +238,8 @@ const OrderSummry = () => {
                 </div>
               </div>
               <div className="total">
-                <h3>Total</h3>
-                <h3>
-                  <span>$</span>
-                  {totalPrice.toFixed(2)}
-                </h3>
+                <h6>Total</h6>
+                <h6>${totalPrice.toFixed(2)}</h6>
               </div>
             </div>
             {getPaymentButton()}
