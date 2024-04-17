@@ -42,34 +42,37 @@ const AllOrders = () => {
     <Container>
       <div className="mainarea all-oredrs">
         <div className="all-orders-area">
-          <h3 className="text-center w-100">My Orders</h3>
+          <h4 className="text-center w-100 my-5">My Orders</h4>
           <div className="display-orders">
             {orders.length > 0 ? (
-              orders.map((order) => (
-                <Link to={`/order/${order?._id}`}>
-                  <div
-                    className="order-detail-card box-shadow"
-                    key={order?._id}>
-                    <div className="order-left-details">
-                      {order.orderItems?.map((item) => (
-                        <div className="image-card" key={item?._id}>
-                          <div className="img">
-                            <img src={item?.image} alt="" />
+              orders
+                .slice()
+                .reverse()
+                .map((order) => (
+                  <Link to={`/order/${order?._id}`}>
+                    <div
+                      className="order-detail-card box-shadow"
+                      key={order?._id}>
+                      <div className="order-left-details">
+                        {order.orderItems?.map((item) => (
+                          <div className="image-card" key={item?._id}>
+                            <div className="img">
+                              <img src={item?.image} alt="" />
+                            </div>
+                            <div className="details">
+                              <h6 className="text-start">{item?.name}</h6>
+                              <p>Quantity:{item?.qty}</p>
+                              <p>Place On : {formatDate(order?.createdAt)}</p>
+                              <p className="text-success">
+                                Your item has been placed.
+                              </p>
+                            </div>
                           </div>
-                          <div className="details">
-                            <h4>{item?.name}</h4>
-                            <p>Quantity:{item?.qty}</p>
-                            <p>Place On : {formatDate(order?.createdAt)}</p>
-                            <p className="text-success">
-                              Your item has been placed.
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))
+                  </Link>
+                ))
             ) : (
               <h1>No Past Orders</h1>
             )}

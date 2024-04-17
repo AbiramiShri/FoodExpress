@@ -30,7 +30,7 @@ const CartItemCard = ({item}) => {
         <img src={item.image} alt={item.name} />
       </div>
       <div className="des">
-        <h6>{item.name}</h6>
+        <p>{item.name}</p>
         <div className="handle">
           <div className="qty">
             <div className="btn" onClick={decreaseQty}>

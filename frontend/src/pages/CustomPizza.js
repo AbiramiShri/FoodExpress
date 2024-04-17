@@ -229,7 +229,7 @@ const CustomPizza = () => {
           <div className="lower-section">
             <div className="checkout-area">
               <div className="billing">
-                <h4>PRICE DETAILS</h4>
+                <h6>PRICE DETAILS</h6>
                 <div className="details">
                   <div className="item">
                     <p>Price</p>

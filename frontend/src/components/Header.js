@@ -3,7 +3,6 @@ import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
 import Logo from '../assets/images/logo.jpeg';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../actions/auth';
-import Wishlist from '../pages/Wishlist';
 
 // Header component
 const Header = ({show}) => {
@@ -31,6 +30,7 @@ const Header = ({show}) => {
   // Function to handle sign out
   const handleSignOut = () => {
     dispatch(logout());
+    window.location.href = `/`;
   };
 
   return (
@@ -57,12 +57,12 @@ const Header = ({show}) => {
               {user && user.user && user.user.isAdmin ? (
                 <>
                   <Nav.Link
-                    href="products-list"
+                    href="/products-list"
                     className="me-3 text-end  text-uppercase text-lg-center">
                     Products List
                   </Nav.Link>
                   <Nav.Link
-                    href="add-product"
+                    href="/add-product"
                     className="me-3 text-end  text-uppercase text-lg-center">
                     Add Product
                   </Nav.Link>
@@ -70,12 +70,12 @@ const Header = ({show}) => {
               ) : (
                 <>
                   <Nav.Link
-                    href="Menu"
+                    href="/Menu"
                     className="me-3 text-end  text-uppercase text-lg-center">
                     Menu
                   </Nav.Link>
                   <Nav.Link
-                    href="Contact"
+                    href="/Contact"
                     className="me-3  text-uppercase text-end text-lg-center">
                     Contact
                   </Nav.Link>
@@ -87,7 +87,7 @@ const Header = ({show}) => {
                 {!user?.user && (
                   <Nav.Link
                     className="me-3  text-uppercase text-end text-lg-center"
-                    href="signin">
+                    href="/signin">
                     Login
                   </Nav.Link>
                 )}

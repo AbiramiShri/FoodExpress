@@ -22,6 +22,7 @@ import AdminOrders from './pages/AdminOrders';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import ProductsList from './pages/ProductList';
+import Header from './components/Header';
 
 const App = () => {
   return (

@@ -85,7 +85,7 @@ const Menu = () => {
               </div>
             </div>
           </Col>
-          <Col xs={12} md={6} lg={6} className="box-shadow">
+          <Col xs={12} md={6} lg={6} className="box-shadow mb-5">
             <Product category={category} />
           </Col>
           <Col xs={12} md={6} lg={4}>

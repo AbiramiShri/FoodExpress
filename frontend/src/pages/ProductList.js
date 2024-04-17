@@ -30,7 +30,6 @@ const ProductList = ({category}) => {
   const handleEdit = (productId) => {
     // history.push(`/edit-product/${productId}`);
     // Handle edit logic here, e.g., navigate to edit product page
-    console.log('Editing product:', productId);
     window.location.href = `/edit-product/${productId}`;
   };
 
@@ -68,7 +67,7 @@ const ProductList = ({category}) => {
 
       {successMessage && <Message msg={successMessage} type="success" />}
 
-      <div className="all-products">
+      <div className="all-products mb-5">
         {loading || data.length === 0 ? (
           <>
             {[1, 2, 3].map((n) => (
