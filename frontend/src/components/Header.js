@@ -75,9 +75,9 @@ const Header = ({show}) => {
                     Menu
                   </Nav.Link>
                   <Nav.Link
-                    href="/Contact"
+                    href="/aboutUs"
                     className="me-3  text-uppercase text-end text-lg-center">
-                    Contact
+                    About Us
                   </Nav.Link>
                 </>
               )}

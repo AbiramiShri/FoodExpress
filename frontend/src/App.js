@@ -6,7 +6,7 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Menu from './pages/Menu';
-import Contact from './pages/Contact';
+import AboutUs from './pages/AboutUs';
 import Cart from './pages/Cart';
 import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
@@ -22,7 +22,6 @@ import AdminOrders from './pages/AdminOrders';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import ProductsList from './pages/ProductList';
-import Header from './components/Header';
 
 const App = () => {
   return (
@@ -38,7 +37,7 @@ const App = () => {
             <Route path="/signup" element={<Signup />} /> {/* Signup page */}
             <Route path="/profile" element={<Profile />} /> {/* Profile page */}
             <Route path="/menu" element={<Menu />} /> {/* Menu page */}
-            <Route path="/contact" element={<Contact />} /> {/* Contact page */}
+            <Route path="/aboutUs" element={<AboutUs />} /> {/* AboutUs page */}
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/payment" element={<Payment />} />
