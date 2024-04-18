@@ -941,7 +941,7 @@ label {
 }
 
 .product-card .des .price {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .product-card .des .price span {
@@ -1742,6 +1742,11 @@ label {
 
 .display-orders {
   margin-bottom: 50px;
+}
+
+/* about */
+.about .category-area .category .cat-icon {
+  margin: 1em;
 }
 
 /* Media Query for Small Screens */
