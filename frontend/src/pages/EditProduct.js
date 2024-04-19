@@ -102,7 +102,7 @@ const EditProduct = () => {
 
   return (
     <>
-      <div className="mainarea admin my-3">
+      <div className="mainarea admin my-5">
         <div className="auth">
           <div className="form">
             <h4>Edit Product</h4>

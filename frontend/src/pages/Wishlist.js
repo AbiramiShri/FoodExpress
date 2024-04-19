@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 
-import Header from '../components/Header';
 
 import ProductCard from '../components/products/ProductCard';
 import Message from '../components/Message';
 import {useDispatch, useSelector} from 'react-redux';
 import SkeletonArticle from '../skeleton/SkeletonArticle';
 import {getWishlist} from '../actions/wishlist';
+import {Container} from 'react-bootstrap';
 const Wishlist = () => {
   const error = useSelector((state) => state.wishlist?.error);
   //    console.log(query)
@@ -19,7 +19,7 @@ const Wishlist = () => {
     dispatch(getWishlist());
   }, []);
   return (
-    <>
+    <Container>
       <div className="mainarea wishlist_main main-search">
         <div className="all-list search">
           {data.length > 0 ? (
@@ -44,16 +44,17 @@ const Wishlist = () => {
               />
             </div>
           ) : (
-            <div>
+            <div className="d-flex justify-content-center align-items-center">
               <img
                 src="https://aquamarineexotic.com/adminpanel/assets/images/empty-wishlist.png"
                 alt=""
+                className="img-fluid"
               />
             </div>
           )}
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 

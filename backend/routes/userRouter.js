@@ -1,11 +1,13 @@
 // Importing necessary modules and files
-import express from 'express'; // Importing Express framework
-import User from '../models/user.js'; // Importing User model
+const express = require('express'); // Importing Express framework
+const User = require('../models/user.js'); // Importing User model
 
-import bcrypt from 'bcrypt'; // Importing bcrypt for password hashing
-import expressAsyncHandler from 'express-async-handler'; // Middleware to handle asynchronous functions
-import {genrateToken, isAuth} from '../util.js'; // Importing utility function to generate token
-import Address from '../models/address.js';
+const bcrypt = require('bcryptjs'); // Importing bcrypt for password hashing
+const expressAsyncHandler = require('express-async-handler'); // Middleware to handle asynchronous functions
+const util = require('../util.js'); // Importing utility function to generate token
+const genrateToken = util.genrateToken;
+const isAuth = util.isAuth;
+const Address = require('../models/address.js');
 
 // Creating a router instance
 const userRouter = express.Router();
@@ -157,4 +159,4 @@ userRouter.put(
   })
 );
 
-export default userRouter;
+module.exports = userRouter;
