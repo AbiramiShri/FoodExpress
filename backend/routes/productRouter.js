@@ -1,9 +1,10 @@
-import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import data from '../data.js';
-import Product from '../models/products.js';
-import Wishlist from '../models/wishlist.js';
-import {isAuth} from '../util.js';
+const express = require('express');
+const expressAsyncHandler = require('express-async-handler');
+const data = require('../data.js');
+const Product = require('../models/products.js');
+const Wishlist = require('../models/wishlist.js');
+const util = require('../util.js');
+const isAuth = util.isAuth;
 
 const productRouter = express.Router();
 
@@ -146,4 +147,4 @@ productRouter.put(
   })
 );
 
-export default productRouter;
+module.exports = productRouter;

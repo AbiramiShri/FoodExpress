@@ -1,6 +1,6 @@
-import moongoose from 'mongoose'
+const mongoose = require('mongoose');
 
-const orderSchema = new moongoose.Schema(
+const orderSchema = new mongoose.Schema(
   {
     orderItems: [
       {
@@ -17,7 +17,7 @@ const orderSchema = new moongoose.Schema(
         ],
         isCustom: {type: Boolean, default: false},
         product: {
-          type: moongoose.Schema.Types.ObjectId,
+          type: mongoose.Schema.Types.ObjectId,
           ref: 'Product',
           required: true,
         },
@@ -55,7 +55,7 @@ const orderSchema = new moongoose.Schema(
     itemsPrice: {type: Number, required: true},
     totalprice: {type: Number, required: true},
     userId: {
-      type: moongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
     },
@@ -78,5 +78,5 @@ const orderSchema = new moongoose.Schema(
     timestamps: true,
   }
 );
-const Order = moongoose.model('Order',orderSchema);
-export default Order;
+const Order = mongoose.model('Order', orderSchema);
+module.exports = Order;

@@ -1142,6 +1142,7 @@ label {
   width: 100%;
   flex-direction: column;
   background: rgb(241, 241, 241);
+  min-height: 100vh;
 }
 
 .cart-screen img {

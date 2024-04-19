@@ -1,50 +1,66 @@
-// Importing necessary modules and files
-import express from 'express'; // Importing Express framework
-import cors from 'cors'; // Importing CORS middleware for cross-origin requests
-import mongoose from 'mongoose'; // Importing mongoose for MongoDB connection
-import dotenv from 'dotenv'; // Importing dotenv for environment variables
-import userRouter from './routes/userRouter.js'; // Importing userRouter from custom route file
-import productRouter from './routes/productRouter.js'; // Importing userRouter from custom route file
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const userRouter = require('./routes/userRouter.js');
+const productRouter = require('./routes/productRouter.js');
+const orderRouter = require('./routes/orderRoute.js');
 
-import orderRouter from './routes/orderRouter.js'; // Importing userRouter from custom route file
+dotenv.config();
 
-dotenv.config(); // Loading environment variables from .env file
-
-// Creating an instance of Express application
 const app = express();
+
+// Custom CORS middleware
+app.use((req, res, next) => {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'http://foodexpress.altervista.org'
+  );
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json({limit: '30mb', extended: true}));
+
 // Middleware to parse incoming requests with URL-encoded payloads
 app.use(express.urlencoded({limit: '30mb', extended: true}));
 
-// Defining the port number for the server
-const PORT = process.env.PORT || 1307;
+app.get('/', (req, res) => {
+  console.log('Welcome to FoodExpress Backend!');
+  res.send('Welcome to FoodExpress Backend!');
+});
 
 // MongoDB connection URI
 const uri =
   'mongodb+srv://shriabishri:MyFamily1915@abishri.5x4yote.mongodb.net/FoodExpress?retryWrites=true&w=majority';
 
 // Connecting to MongoDB database
-mongoose.connect(uri, (err) => {
-  if (err) throw err; // If error occurs during connection, throw error
-  console.log('Connected to Food express DB...'); // Log success message if connected
-});
+mongoose
+  .connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log('Connected to Food express DB...');
+  })
+  .catch((err) => {
+    console.error('Failed to connect to MongoDB:', err);
+  });
 
-// Middleware to enable CORS
-app.use(cors());
-
-// Mounting userRouter for handling user-related routes
+// Mounting routers
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 
-// Error handling middleware to handle server errors
+// Error handling middleware
 app.use((err, req, res, next) => {
-  res.status(500).send({message: err.message}); // Sending error message with status code 500
+  console.error(err.stack);
+  res.status(500).send({message: 'Something went wrong!'});
 });
 
-// Starting the server and listening on the defined port
+const PORT = process.env.PORT || 1307;
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`); // Logging server start message
+  console.log(`Server running at http://localhost:${PORT}`);
 });
